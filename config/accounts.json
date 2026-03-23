@@ -1,0 +1,632 @@
+[
+    {
+      "account_code": "parfenenko_ukb",
+      "company_code": "parfenenko",
+      "display_name": "ИП Парфененко М.А.",
+      "bank": "ukb",
+      "parser": "ukb_holder_outgoing",
+      "match_all": ["holder: ИППарфененко Мария Александровна"],
+      "active": true
+    },
+    {
+      "account_code": "parfenenko_vtb",
+      "company_code": "parfenenko",
+      "display_name": "ИП Парфененко М.А. ВТБ",
+      "bank": "vtb",
+      "parser": "vtb_outgoing_balance",
+      "match_all": ["Владелец счета: Индивидуальный предприниматель ПАРФЕНЕНКО МАРИЯ АЛЕКСАНДРОВНА"],
+      "active": true
+    },
+    {
+      "account_code": "manevich_ukb",
+      "company_code": "manevich",
+      "display_name": "ИП Маневич А.Е.",
+      "bank": "ukb",
+      "parser": "ukb_holder_outgoing",
+      "match_all": ["holder: ИПМАНЕВИЧ АЛЛАЕФИМОВНА"],
+      "active": true
+    },
+    {
+      "account_code": "manevich_sber",
+      "company_code": "manevich",
+      "display_name": "ИП Маневич А.Е. СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance",
+      "match_all": ["ИНДИВИДУАЛЬНЫЙ ПРЕДПРИНИМАТЕЛЬ МАНЕВИЧ АЛЛА ЕФИМОВНА", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "steit_sber",
+      "company_code": "steit",
+      "display_name": "ООО Стейт СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"СТЕЙТ\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "steit_ukb",
+      "company_code": "steit",
+      "display_name": "ООО Стейт ЮКБ",
+      "bank": "ukb",
+      "parser": "ukb_holder_outgoing",
+      "match_all": ["holder: ООО\"СТЕЙТ\""],
+      "active": true
+    },
+    {
+      "account_code": "metro_ukb",
+      "company_code": "metro",
+      "display_name": "ООО Метро",
+      "bank": "ukb",
+      "parser": "ukb_holder_outgoing",
+      "match_all": ["holder: ООО\"Метро\""],
+      "active": true
+    },
+    {
+      "account_code": "metro_sber",
+      "company_code": "metro",
+      "display_name": "ООО Метро СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"МЕТРО\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "tsn_repinskoe_vtb",
+      "company_code": "tsn_repinskoe",
+      "display_name": "ТСН Репинское ВТБ",
+      "bank": "vtb",
+      "parser": "vtb_outgoing_balance",
+      "match_all": ["Владелец счета: ТОВАРИЩЕСТВО СОБСТВЕННИКОВ НЕДВИЖИМОСТИ \"РЕПИНСКОЕ\""],
+      "active": true
+    },
+    {
+      "account_code": "tsn_repinskoe2_tochka",
+      "company_code": "tsn_repinskoe2",
+      "display_name": "ТСН Репинское 2 Точка",
+      "bank": "tochka",
+      "parser": "tochka_outgoing_balance",
+      "match_all": ["Клиент: ТОВАРИЩЕСТВО СОБСТВЕННИКОВ НЕДВИЖИМОСТИ \"РЕПИНСКОЕ 2\""],
+      "active": true
+    },
+    {
+      "account_code": "tsn_oazis_tochka",
+      "company_code": "tsn_oazis",
+      "display_name": "ТСН Оазис Точка",
+      "bank": "tochka",
+      "parser": "tochka_outgoing_balance",
+      "match_all": ["Клиент: ТОВАРИЩЕСТВО СОБСТВЕННИКОВ НЕДВИЖИМОСТИ \"ОАЗИС\""],
+      "active": true
+    },
+    {
+      "account_code": "ankon_raiffeisen",
+      "company_code": "ankon",
+      "display_name": "ООО Анкон",
+      "bank": "raiffeisen",
+      "parser": "raiffeisen_outgoing_balance",
+      "match_all": ["АНКОН"],
+      "active": true
+    },
+    {
+      "account_code": "kudrovo_stroy_sber",
+      "company_code": "kudrovo_stroy",
+      "display_name": "ООО Кудрово-Строй",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"КУДРОВО-СТРОЙ\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "klever_bspb_375",
+      "company_code": "klever",
+      "display_name": "ООО Клевер 375",
+      "bank": "bspb",
+      "parser": "bspb_spisanie_balance",
+      "match_all": ["Счёт: 40702 810 3 9027 0000375"],
+      "active": true
+    },
+    {
+      "account_code": "klever_bspb_852",
+      "company_code": "klever",
+      "display_name": "ООО Клевер 852",
+      "bank": "bspb",
+      "parser": "bspb_spisanie_balance",
+      "match_all": ["Счёт: 40702 810 7 9027 0000852"],
+      "active": true
+    },
+    {
+      "account_code": "klever_sber",
+      "company_code": "klever",
+      "display_name": "ООО Клевер СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"КЛЕВЕР\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "klever_vtb",
+      "company_code": "klever",
+      "display_name": "ООО Клевер ВТБ",
+      "bank": "vtb",
+      "parser": "vtb_outgoing_balance",
+      "match_all": ["Владелец счета: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"КЛЕВЕР\""],
+      "active": true
+    },
+    {
+      "account_code": "partner_ukb",
+      "company_code": "partner",
+      "display_name": "ООО Партнер",
+      "bank": "ukb",
+      "parser": "ukb_holder_outgoing",
+      "match_all": ["holder: ООО\"Партнер\""],
+      "active": true
+    },
+    {
+      "account_code": "partner_vtb",
+      "company_code": "partner",
+      "display_name": "ООО Партнер ВТБ",
+      "bank": "vtb",
+      "parser": "vtb_outgoing_balance",
+      "match_all": ["Владелец счета: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ПАРТНЕР"],
+      "active": true
+    },
+    {
+      "account_code": "partner_sber",
+      "company_code": "partner",
+      "display_name": "ООО Партнер СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ПАРТНЕР\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "ohtinskaya_alleya_ukb",
+      "company_code": "ohtinskaya_alleya",
+      "display_name": "ООО Охтинская аллея",
+      "bank": "ukb",
+      "parser": "ukb_holder_outgoing",
+      "match_all": ["holder: ООО\"Охтинская аллея\""],
+      "active": true
+    },
+    {
+      "account_code": "ohtinskaya_alleya_vtb",
+      "company_code": "ohtinskaya_alleya",
+      "display_name": "ООО Охтинская аллея ВТБ",
+      "bank": "vtb",
+      "parser": "vtb_outgoing_balance",
+      "match_all": ["Владелец счета: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ОХТИНСКАЯ АЛЛЕЯ\""],
+      "active": true
+    },
+    {
+      "account_code": "ohtinskaya_alleya_sber",
+      "company_code": "ohtinskaya_alleya",
+      "display_name": "ООО Охтинская аллея СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ОХТИНСКАЯ АЛЛЕЯ\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "h1_sovcom",
+      "company_code": "h1",
+      "display_name": "ООО Н1",
+      "bank": "sovcom",
+      "parser": "sovcom_outgoing_balance",
+      "match_all": ["Общество с ограниченной ответственностью \"Н1\""],
+      "active": true
+    },
+    {
+      "account_code": "h1_sber",
+      "company_code": "h1",
+      "display_name": "ООО Н1 СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"Н1\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "raduga_sber",
+      "company_code": "raduga",
+      "display_name": "ООО Радуга СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance_with_day_suffix",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"РАДУГА\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "raduga_vtb",
+      "company_code": "raduga",
+      "display_name": "ООО Радуга ВТБ",
+      "bank": "vtb",
+      "parser": "vtb_outgoing_balance",
+      "match_all": ["Владелец счета: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"РАДУГА\""],
+      "active": true
+    },
+    {
+      "account_code": "reaktiv_bspb",
+      "company_code": "reaktiv",
+      "display_name": "ООО Реактив БСПБ",
+      "bank": "bspb",
+      "parser": "bspb_spisanie_balance",
+      "match_all": ["Счёт: 40702 810 3 9027 0000414"],
+      "active": true
+    },
+    {
+      "account_code": "reaktiv_sber",
+      "company_code": "reaktiv",
+      "display_name": "ООО Реактив СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance_with_day_suffix",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"РЕАКТИВ\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "romashki_bspb",
+      "company_code": "romashki",
+      "display_name": "ООО Ромашки БСПБ",
+      "bank": "bspb",
+      "parser": "bspb_spisanie_balance",
+      "match_all": ["0001648"],
+      "active": true
+    },
+    {
+      "account_code": "romashki_ukb",
+      "company_code": "romashki",
+      "display_name": "ООО Ромашки ЮКБ",
+      "bank": "ukb",
+      "parser": "ukb_holder_outgoing",
+      "match_all": ["holder: ООО\"Ромашки\""],
+      "active": true
+    },
+    {
+      "account_code": "romashki_sber",
+      "company_code": "romashki",
+      "display_name": "ООО Ромашки СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"РОМАШКИ\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "smart_solution_vtb",
+      "company_code": "smart_solution",
+      "display_name": "ООО Смарт Солюшн ВТБ",
+      "bank": "vtb",
+      "parser": "vtb_outgoing_balance",
+      "match_all": ["Владелец счета: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"СМАРТ СОЛЮШН\""],
+      "active": true
+    },
+    {
+      "account_code": "smart_solution_sber",
+      "company_code": "smart_solution",
+      "display_name": "ООО Смарт Солюшн СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance_with_day_suffix",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"СМАРТ СОЛЮШН\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "formula_ukb",
+      "company_code": "formula",
+      "display_name": "ООО Формула",
+      "bank": "ukb",
+      "parser": "ukb_holder_outgoing",
+      "match_all": ["holder: ООО\"Формула\""],
+      "active": true
+    },
+    {
+      "account_code": "formula_vtb",
+      "company_code": "formula",
+      "display_name": "ООО Формула ВТБ",
+      "bank": "vtb",
+      "parser": "vtb_outgoing_balance",
+      "match_all": ["Владелец счета: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ФОРМУЛА"],
+      "active": true
+    },
+    {
+      "account_code": "formula_sber",
+      "company_code": "formula",
+      "display_name": "ООО Формула СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ФОРМУЛА\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "sityinvest_ukb",
+      "company_code": "sityinvest",
+      "display_name": "ООО СитиИнвест",
+      "bank": "ukb",
+      "parser": "ukb_holder_outgoing",
+      "match_all": ["holder: ООО\"СитиИнвест\""],
+      "active": true
+    },
+    {
+      "account_code": "sityinvest_sber",
+      "company_code": "sityinvest",
+      "display_name": "ООО СитиИнвест СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"СИТИИНВЕСТ\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "sityinvest_vtb",
+      "company_code": "sityinvest",
+      "display_name": "ООО СитиИнвест ВТБ",
+      "bank": "vtb",
+      "parser": "vtb_outgoing_balance",
+      "match_all": ["Владелец счета: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"СИТИИНВЕСТ\""],
+      "active": true
+    },
+    {
+      "account_code": "sev_zvezda_ukb",
+      "company_code": "sev_zvezda",
+      "display_name": "ООО Северная звезда",
+      "bank": "ukb",
+      "parser": "ukb_holder_outgoing",
+      "match_all": ["holder: ООО\"Северная звезда\""],
+      "active": true
+    },
+    {
+      "account_code": "sev_zvezda_sber",
+      "company_code": "sev_zvezda",
+      "display_name": "ООО Северная звезда СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"СЕВЕРНАЯ ЗВЕЗДА\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "dudergof_ukb",
+      "company_code": "dudergof",
+      "display_name": "ООО Дудергоф",
+      "bank": "ukb",
+      "parser": "ukb_holder_outgoing",
+      "match_all": ["holder: ООО\"Дудергоф\""],
+      "active": true
+    },
+    {
+      "account_code": "dudergof_sber",
+      "company_code": "dudergof",
+      "display_name": "ООО Дудергоф СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ДУДЕРГОФ\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "dudergof_invest_ukb",
+      "company_code": "dudergof_invest",
+      "display_name": "ООО Дудергоф-Инвест",
+      "bank": "ukb",
+      "parser": "ukb_holder_outgoing",
+      "match_all": ["holder: ООО\"Дудергоф-Инвест\""],
+      "active": true
+    },
+    {
+      "account_code": "m_invest_ukb",
+      "company_code": "m_invest",
+      "display_name": "ООО М-Инвест",
+      "bank": "ukb",
+      "parser": "ukb_holder_outgoing",
+      "match_all": ["holder: ООО\"М-Инвест\""],
+      "active": true
+    },
+    {
+      "account_code": "sp_impost_ukb",
+      "company_code": "sp_impost",
+      "display_name": "ООО СП-Импост",
+      "bank": "ukb",
+      "parser": "ukb_holder_outgoing",
+      "match_all": ["holder: ООО\"СП-Импост\""],
+      "active": true
+    },
+    {
+      "account_code": "sp_impost_sber",
+      "company_code": "sp_impost",
+      "display_name": "ООО СП-Импост СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ  \"СП-ИМПОСТ\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "praga_ukb",
+      "company_code": "praga",
+      "display_name": "ООО Прага",
+      "bank": "ukb",
+      "parser": "ukb_holder_outgoing",
+      "match_all": ["holder: ООО\"Прага\""],
+      "active": true
+    },
+    {
+      "account_code": "praga_vtb",
+      "company_code": "praga",
+      "display_name": "ООО Прага ВТБ",
+      "bank": "vtb",
+      "parser": "vtb_outgoing_balance",
+      "match_all": ["Владелец счета: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ПРАГА\""],
+      "active": true
+    },
+    {
+      "account_code": "praga_sber",
+      "company_code": "praga",
+      "display_name": "ООО Прага СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ПРАГА\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "frank_ukb",
+      "company_code": "frank",
+      "display_name": "ООО Франк",
+      "bank": "ukb",
+      "parser": "ukb_holder_outgoing",
+      "match_all": ["holder: ООО\"Франк\""],
+      "active": true
+    },
+    {
+      "account_code": "ser_ukb",
+      "company_code": "ser",
+      "display_name": "ООО СЭР",
+      "bank": "ukb",
+      "parser": "ukb_holder_outgoing",
+      "match_all": ["holder: ООО\"СтройЭкспертРитейл\""],
+      "active": true
+    },
+    {
+      "account_code": "ser_sber",
+      "company_code": "ser",
+      "display_name": "ООО СЭР СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"СТРОЙЭКСПЕРТРИТЕЙЛ\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "murino_grad_sber",
+      "company_code": "murino_grad",
+      "display_name": "ООО Мурино-Град",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance_with_day_suffix",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"МУРИНО-ГРАД\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "akvitania_ukb",
+      "company_code": "akvitania",
+      "display_name": "ООО Аквитания",
+      "bank": "ukb",
+      "parser": "ukb_holder_outgoing",
+      "match_all": ["holder: ООО\"Аквитания\""],
+      "active": true
+    },
+    {
+      "account_code": "akvitania_sber",
+      "company_code": "akvitania",
+      "display_name": "ООО Аквитания СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"АКВИТАНИЯ\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "bergen_ukb",
+      "company_code": "bergen",
+      "display_name": "ООО Берген",
+      "bank": "ukb",
+      "parser": "ukb_holder_outgoing",
+      "match_all": ["holder: ООО\"БЕРГЕН\""],
+      "active": true
+    },
+    {
+      "account_code": "bergen_sber",
+      "company_code": "bergen",
+      "display_name": "ООО Берген СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"БЕРГЕН\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "immobi_ukb",
+      "company_code": "immobi",
+      "display_name": "ООО Иммоби",
+      "bank": "ukb",
+      "parser": "ukb_holder_outgoing",
+      "match_all": ["holder: ООО\"ИММОБИ\""],
+      "active": true
+    },
+    {
+      "account_code": "immobi_sber",
+      "company_code": "immobi",
+      "display_name": "ООО Иммоби СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ИММОБИ\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "kudrovo_invest_ukb",
+      "company_code": "kudrovo_invest",
+      "display_name": "ООО Кудрово-Инвест",
+      "bank": "ukb",
+      "parser": "ukb_holder_outgoing",
+      "match_all": ["holder: ООО\"Кудрово-Инвест\""],
+      "active": true
+    },
+    {
+      "account_code": "kudrovo_invest_sber",
+      "company_code": "kudrovo_invest",
+      "display_name": "ООО Кудрово-Инвест СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"КУДРОВО-ИНВЕСТ\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "proektnye_resheniya_ukb",
+      "company_code": "proektnye_resheniya",
+      "display_name": "ООО Проектные решения",
+      "bank": "ukb",
+      "parser": "ukb_holder_outgoing",
+      "match_all": ["holder: ООО\"Проектные Решения\""],
+      "active": true
+    },
+    {
+      "account_code": "proektnye_resheniya_sber",
+      "company_code": "proektnye_resheniya",
+      "display_name": "ООО Проектные решения СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ПРОЕКТНЫЕ РЕШЕНИЯ\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "riteil_park_ukb",
+      "company_code": "riteil_park",
+      "display_name": "ООО Ритейл Парк",
+      "bank": "ukb",
+      "parser": "ukb_holder_outgoing",
+      "match_all": ["holder: ООО\"Ритейл Парк\""],
+      "active": true
+    },
+    {
+      "account_code": "riteil_park_sber",
+      "company_code": "riteil_park",
+      "display_name": "ООО Ритейл Парк СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"РИТЕЙЛ ПАРК\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "media47_sber",
+      "company_code": "media47",
+      "display_name": "ООО Медиа 47",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"МЕДИА 47\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "gastropark_sovcom",
+      "company_code": "gastropark",
+      "display_name": "ООО Гастропарк",
+      "bank": "sovcom",
+      "parser": "sovcom_outgoing_balance",
+      "match_all": ["Общество с ограниченной ответственностью \"ГАСТРОПАРК\""],
+      "active": true
+    },
+    {
+      "account_code": "on_index_bspb",
+      "company_code": "on_index",
+      "display_name": "ООО ОН ИНДЕКС",
+      "bank": "bspb",
+      "parser": "bspb_outgoing_balance",
+      "match_all": ["Общество с ограниченной ответственностью \"ОН ИНДЕКС\""],
+      "active": true
+    }
+  ]

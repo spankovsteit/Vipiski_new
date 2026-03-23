@@ -1,0 +1,334 @@
+[
+    {
+      "company_code": "parfenenko",
+      "display_name": "ИП Парфененко М.А.",
+      "section": "Управляющие компании",
+      "google_total_cell": "D2",
+      "account_balances_label": "Парфененко М. А. ИП ЮКБ",
+      "accounts": ["parfenenko_ukb", "parfenenko_vtb"],
+      "active": true
+    },
+    {
+      "company_code": "manevich",
+      "display_name": "ИП Маневич А.Е.",
+      "section": "Управляющие компании",
+      "google_total_cell": "D3",
+      "account_balances_label": "Маневич А. Е. ИП",
+      "accounts": ["manevich_ukb", "manevich_sber"],
+      "active": true
+    },
+    {
+      "company_code": "steit",
+      "display_name": "ООО \"СТЕЙТ\"",
+      "section": "Балансодержатели",
+      "google_total_cell": "D5",
+      "account_balances_label": "СТЕЙТ ООО",
+      "accounts": ["steit_sber", "steit_ukb"],
+      "active": true
+    },
+    {
+      "company_code": "metro",
+      "display_name": "ООО \"МЕТРО\"",
+      "section": "Балансодержатели",
+      "google_total_cell": "D6",
+      "account_balances_label": "МЕТРО ООО",
+      "accounts": ["metro_ukb", "metro_sber"],
+      "active": true
+    },
+    {
+      "company_code": "tsn_repinskoe",
+      "display_name": "ТСН \"РЕПИНСКОЕ\"",
+      "section": "Управляющие компании",
+      "google_total_cell": "D8",
+      "account_balances_label": "ТСН \"Репинское\"",
+      "accounts": ["tsn_repinskoe_vtb"],
+      "active": true
+    },
+    {
+      "company_code": "tsn_repinskoe2",
+      "display_name": "ТСН \"РЕПИНСКОЕ 2\"",
+      "section": "Управляющие компании",
+      "google_total_cell": "D9",
+      "account_balances_label": "ТСН РЕПИНСКОЕ 2",
+      "accounts": ["tsn_repinskoe2_tochka"],
+      "active": true
+    },
+    {
+      "company_code": "tsn_oazis",
+      "display_name": "ТСН \"ОАЗИС\"",
+      "section": "Управляющие компании",
+      "google_total_cell": "D10",
+      "account_balances_label": "ОАЗИС ТСН",
+      "accounts": ["tsn_oazis_tochka"],
+      "active": true
+    },
+    {
+      "company_code": "ankon",
+      "display_name": "ООО \"АНКОН\"",
+      "section": "Управляющие компании",
+      "google_total_cell": "D12",
+      "account_balances_label": "АНКОН ООО",
+      "accounts": ["ankon_raiffeisen"],
+      "active": true
+    },
+    {
+      "company_code": "kudrovo_stroy",
+      "display_name": "ООО \"КУДРОВО-СТРОЙ\"",
+      "section": "Управляющие компании",
+      "google_total_cell": "D13",
+      "account_balances_label": "КУДРОВО-СТРОЙ ООО",
+      "accounts": ["kudrovo_stroy_sber"],
+      "active": true
+    },
+    {
+      "company_code": "klever",
+      "display_name": "ООО \"Клевер\"",
+      "section": "Управляющие компании",
+      "google_total_cell": "D14",
+      "account_balances_label": "КЛЕВЕР ООО",
+      "accounts": ["klever_bspb_375", "klever_bspb_852", "klever_sber", "klever_vtb"],
+      "active": true
+    },
+    {
+      "company_code": "partner",
+      "display_name": "ООО \"Партнер\"",
+      "section": "Управляющие компании",
+      "google_total_cell": "D15",
+      "account_balances_label": "ПАРТНЕР ООО",
+      "accounts": ["partner_ukb", "partner_vtb", "partner_sber"],
+      "active": true
+    },
+    {
+      "company_code": "ohtinskaya_alleya",
+      "display_name": "ООО \"Охтинская аллея\"",
+      "section": "Управляющие компании",
+      "google_total_cell": "D16",
+      "account_balances_label": "ОХТИНСКАЯ АЛЛЕЯ ООО",
+      "accounts": ["ohtinskaya_alleya_ukb", "ohtinskaya_alleya_vtb", "ohtinskaya_alleya_sber"],
+      "active": true
+    },
+    {
+      "company_code": "h1",
+      "display_name": "ООО \"Н1\"",
+      "section": "Управляющие компании",
+      "google_total_cell": "D17",
+      "account_balances_label": "Н1 ООО",
+      "accounts": ["h1_sovcom", "h1_sber"],
+      "active": true
+    },
+    {
+      "company_code": "raduga",
+      "display_name": "ООО \"Радуга\"",
+      "section": "Управляющие компании",
+      "google_total_cell": "D18",
+      "account_balances_label": "РАДУГА ООО",
+      "accounts": ["raduga_sber", "raduga_vtb"],
+      "active": true
+    },
+    {
+      "company_code": "reaktiv",
+      "display_name": "ООО \"Реактив\"",
+      "section": "Управляющие компании",
+      "google_total_cell": "D19",
+      "account_balances_label": "РЕАКТИВ ООО",
+      "accounts": ["reaktiv_bspb", "reaktiv_sber"],
+      "active": true
+    },
+    {
+      "company_code": "romashki",
+      "display_name": "ООО \"Ромашки\"",
+      "section": "Управляющие компании",
+      "google_total_cell": "D20",
+      "account_balances_label": "РОМАШКИ ООО",
+      "accounts": ["romashki_bspb", "romashki_ukb", "romashki_sber"],
+      "active": true
+    },
+    {
+      "company_code": "smart_solution",
+      "display_name": "ООО \"Смарт Солюшн\"",
+      "section": "Управляющие компании",
+      "google_total_cell": "D21",
+      "account_balances_label": "СМАРТ СОЛЮШН ООО",
+      "accounts": ["smart_solution_vtb", "smart_solution_sber"],
+      "active": true
+    },
+    {
+      "company_code": "formula",
+      "display_name": "ООО \"Формула\"",
+      "section": "Управляющие компании",
+      "google_total_cell": "D22",
+      "account_balances_label": "ФОРМУЛА ООО",
+      "accounts": ["formula_ukb", "formula_vtb", "formula_sber"],
+      "active": true
+    },
+    {
+      "company_code": "sityinvest",
+      "display_name": "ООО \"СитиИнвест\"",
+      "section": "Балансодержатели",
+      "google_total_cell": "D24",
+      "account_balances_label": "СИТИИНВЕСТ ООО",
+      "accounts": ["sityinvest_ukb", "sityinvest_sber", "sityinvest_vtb"],
+      "active": true
+    },
+    {
+      "company_code": "sev_zvezda",
+      "display_name": "ООО \"Северная звезда\"",
+      "section": "Балансодержатели",
+      "google_total_cell": "D25",
+      "account_balances_label": "СЕВЕРНАЯ ЗВЕЗДА ООО",
+      "accounts": ["sev_zvezda_ukb", "sev_zvezda_sber"],
+      "active": true
+    },
+    {
+      "company_code": "dudergof",
+      "display_name": "ООО \"Дудергоф\"",
+      "section": "Балансодержатели",
+      "google_total_cell": "D26",
+      "account_balances_label": "ДУДЕРГОФ ООО",
+      "accounts": ["dudergof_ukb", "dudergof_sber"],
+      "active": true
+    },
+    {
+      "company_code": "dudergof_invest",
+      "display_name": "ООО \"Дудергоф-Инвест\"",
+      "section": "Балансодержатели",
+      "google_total_cell": "D36",
+      "account_balances_label": "ДУДЕРГОФ ИНВЕСТ ООО",
+      "accounts": ["dudergof_invest_ukb"],
+      "active": true
+    },
+    {
+      "company_code": "m_invest",
+      "display_name": "ООО \"М-Инвест\"",
+      "section": "Балансодержатели",
+      "google_total_cell": "D27",
+      "account_balances_label": "М-ИНВЕСТ ООО",
+      "accounts": ["m_invest_ukb"],
+      "active": true
+    },
+    {
+      "company_code": "sp_impost",
+      "display_name": "ООО \"СП-Импост\"",
+      "section": "Балансодержатели",
+      "google_total_cell": "D28",
+      "account_balances_label": "СП-Импост ООО",
+      "accounts": ["sp_impost_ukb", "sp_impost_sber"],
+      "active": true
+    },
+    {
+      "company_code": "praga",
+      "display_name": "ООО \"Прага\"",
+      "section": "Балансодержатели",
+      "google_total_cell": "D29",
+      "account_balances_label": "ПРАГА ООО",
+      "accounts": ["praga_ukb", "praga_vtb", "praga_sber"],
+      "active": true
+    },
+    {
+      "company_code": "frank",
+      "display_name": "ООО \"Франк\"",
+      "section": "Балансодержатели",
+      "google_total_cell": "D30",
+      "account_balances_label": "ФРАНК ООО",
+      "accounts": ["frank_ukb"],
+      "active": true
+    },
+    {
+      "company_code": "ser",
+      "display_name": "ООО \"СЭР\"",
+      "section": "Ген подрядные компании",
+      "google_total_cell": "D32",
+      "account_balances_label": "СЭР ООО",
+      "accounts": ["ser_ukb", "ser_sber"],
+      "active": true
+    },
+    {
+      "company_code": "murino_grad",
+      "display_name": "ООО \"Мурино-Град\"",
+      "section": "Инвестиционные компании",
+      "google_total_cell": "D33",
+      "account_balances_label": "МУРИНО-ГРАД ООО",
+      "accounts": ["murino_grad_sber"],
+      "active": true
+    },
+    {
+      "company_code": "akvitania",
+      "display_name": "ООО \"Аквитания\"",
+      "section": "Инвестиционные компании",
+      "google_total_cell": "D34",
+      "account_balances_label": "АКВИТАНИЯ ООО",
+      "accounts": ["akvitania_ukb", "akvitania_sber"],
+      "active": true
+    },
+    {
+      "company_code": "bergen",
+      "display_name": "ООО \"Берген\"",
+      "section": "Инвестиционные компании",
+      "google_total_cell": "D35",
+      "account_balances_label": "БЕРГЕН ООО",
+      "accounts": ["bergen_ukb", "bergen_sber"],
+      "active": true
+    },
+    {
+      "company_code": "immobi",
+      "display_name": "ООО \"Иммоби\"",
+      "section": "Инвестиционные компании",
+      "google_total_cell": "D37",
+      "account_balances_label": "ИММОБИ ООО",
+      "accounts": ["immobi_ukb", "immobi_sber"],
+      "active": true
+    },
+    {
+      "company_code": "kudrovo_invest",
+      "display_name": "ООО \"Кудрово-Инвест\"",
+      "section": "Инвестиционные компании",
+      "google_total_cell": "D39",
+      "account_balances_label": "КУДРОВО-ИНВЕСТ ООО",
+      "accounts": ["kudrovo_invest_ukb", "kudrovo_invest_sber"],
+      "active": true
+    },
+    {
+      "company_code": "proektnye_resheniya",
+      "display_name": "ООО \"Проектные решения\"",
+      "section": "Инвестиционные компании",
+      "google_total_cell": "D40",
+      "account_balances_label": "ПРОЕКТНЫЕ РЕШЕНИЯ ООО",
+      "accounts": ["proektnye_resheniya_ukb", "proektnye_resheniya_sber"],
+      "active": true
+    },
+    {
+      "company_code": "riteil_park",
+      "display_name": "ООО \"Ритейл Парк\"",
+      "section": "Инвестиционные компании",
+      "google_total_cell": "D41",
+      "account_balances_label": "РИТЕЙЛ ПАРК ООО",
+      "accounts": ["riteil_park_ukb", "riteil_park_sber"],
+      "active": true
+    },
+    {
+      "company_code": "media47",
+      "display_name": "ООО \"Медиа 47\"",
+      "section": "Управляющие компании",
+      "google_total_cell": "D42",
+      "account_balances_label": "МЕДИА 47 ООО",
+      "accounts": ["media47_sber"],
+      "active": true
+    },
+    {
+      "company_code": "gastropark",
+      "display_name": "ООО \"Гастропарк\"",
+      "section": "Управляющие компании",
+      "google_total_cell": null,
+      "accounts": ["gastropark_sovcom"],
+      "active": true
+    },
+    {
+      "company_code": "on_index",
+      "display_name": "ООО \"ОН ИНДЕКС\"",
+      "section": "Балансодержатели",
+      "google_total_cell": "D38",
+      "account_balances_label": "ОН ИНДЕКС ООО",
+      "accounts": ["on_index_bspb"],
+      "active": true
+    }
+  ]
