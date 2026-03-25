@@ -78,7 +78,7 @@ def load_settings() -> Settings:
             str(ROOT / "credentials" / "service_account.json"),
         ),
         google_spreadsheet_name=os.environ.get(
-            "GOOGLE_SPREADSHEET_NAME", "Копия План_платежей (день)"
+            "GOOGLE_SPREADSHEET_NAME", "План_платежей (день)"
         ),
         google_worksheet_balances=os.environ.get(
             "GOOGLE_WORKSHEET_BALANCES", "Account_balances"

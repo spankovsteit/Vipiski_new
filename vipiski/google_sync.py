@@ -9,11 +9,14 @@ Data flow
   filled only. Balances use RU-style text (``672 116,05``) and ``USER_ENTERED``.
 - **Account_balances** — column **A** can be synced from ``account_balances_label``
   (same row as ``google_total_cell``, or ``account_balances_name_cell`` when set).
+  After the Telegram body is built, ``main`` mirrors it to cell **P1** for optional
+  Google Apps Script delivery (see ``write_account_balances_telegram_outbox``).
   Cell ``google_total_cell`` (column **D**) holds either a **formula**:
-  sum from ``raw_balances`` **plus** the **numeric value** read from column **G** on
-  the same row at sync time (embedded as a literal in the formula, not ``G14``).
-  After changing G, run the pipeline again to refresh D. Legacy numeric mode still
-  adds G the same way.
+  sum from ``raw_balances`` **plus** a **numeric literal** (no ``G`` reference) when
+  the pipeline decides the deposit counts: column **J** is parsed in Python and
+  compared to the run date; if it matches **today**, **G** is read and embedded as
+  the literal addend. Re-run after changing **G** or **J** so the formula updates.
+  The sheet formula itself has **no** date check on **J**.
 
 Formula locale
 --------------
@@ -32,6 +35,8 @@ from __future__ import annotations
 
 import logging
 import re
+from dataclasses import dataclass
+from datetime import date
 from decimal import Decimal
 from pathlib import Path
 from typing import Any, Optional
@@ -39,7 +44,24 @@ from typing import Any, Optional
 import gspread
 from gspread.exceptions import WorksheetNotFound
 
+from vipiski.deposits import parse_deposit_amount_cell, parse_deposit_maturity_date
+
 log = logging.getLogger(__name__)
+
+
+@dataclass(frozen=True)
+class SyncResult:
+    """
+    Return value of :func:`sync`.
+
+    Carries open worksheet handles and in-memory data so callers do not need to
+    re-authenticate or re-read sheets after the sync run.
+    """
+
+    ws_bal: Any
+    ws_raw: Any
+    final_balances: dict[str, Optional[Decimal]]
+    balances_sheet_data: list[list[str]]
 
 RAW_HEADER_EXTENDED = [
     "account_code",
@@ -100,14 +122,22 @@ def _column_a_from_total_cell(total_cell: str) -> str:
     return f"A{_a1_row_number(total_cell)}"
 
 
-# Column G (0-based index 6) on Account_balances — deposit amount (see deposits.py).
+# Column G (6), J (9) on Account_balances — deposit amount and maturity (see deposits.py).
 _ACCOUNT_BALANCES_DEPOSIT_COL = 6
+_ACCOUNT_BALANCES_MATURITY_COL = 9
 
 
-def _deposit_numeric_same_row(
-    all_values: list[list[str]], total_cell_a1: str
+def _deposit_amount_if_mature_today(
+    all_values: list[list[str]],
+    total_cell_a1: str,
+    *,
+    as_of: date | None = None,
 ) -> Decimal:
-    """Parse deposit amount in column G on the same row as ``google_total_cell``."""
+    """
+    Deposit in **G** counts only when **J** parses to the same calendar day as ``as_of``
+    (default: today).
+    """
+    as_of = as_of or date.today()
     try:
         rn = _a1_row_number(total_cell_a1)
     except ValueError:
@@ -116,21 +146,12 @@ def _deposit_numeric_same_row(
     if i < 0 or i >= len(all_values):
         return Decimal(0)
     row = all_values[i]
-    if len(row) <= _ACCOUNT_BALANCES_DEPOSIT_COL:
+    j_raw = row[_ACCOUNT_BALANCES_MATURITY_COL] if len(row) > _ACCOUNT_BALANCES_MATURITY_COL else ""
+    mat = parse_deposit_maturity_date(str(j_raw))
+    if mat != as_of:
         return Decimal(0)
-    raw = (
-        str(row[_ACCOUNT_BALANCES_DEPOSIT_COL])
-        .strip()
-        .replace("\xa0", " ")
-        .replace(" ", "")
-        .replace(",", ".")
-    )
-    if not raw:
-        return Decimal(0)
-    try:
-        return Decimal(raw)
-    except Exception:
-        return Decimal(0)
+    g_raw = row[_ACCOUNT_BALANCES_DEPOSIT_COL] if len(row) > _ACCOUNT_BALANCES_DEPOSIT_COL else ""
+    return parse_deposit_amount_cell(str(g_raw))
 
 
 def _decimal_abs_literal_for_formula(magnitude: Decimal, locale: str) -> str:
@@ -220,8 +241,9 @@ def _company_total_formula(
     deposit_addend: Decimal | None = None,
 ) -> str:
     """
-    Sum ``raw_balances`` for ``account_codes`` (column F active), then add the
-    **literal** deposit amount read from column G at write time (not a cell ref).
+    Sum ``raw_balances`` for ``account_codes`` (column F active), then add
+    ``deposit_addend`` as a **literal** (already zero when **J** ≠ today — decided
+    in Python before calling this).
     """
     loc = (locale or "ru").lower()[:2]
     sep = ";" if loc != "en" else ","
@@ -276,6 +298,8 @@ def ensure_worksheet(sh, title: str, rows: int = 500, cols: int = 6):
 
 def read_raw_balances_ordered(
     ws,
+    *,
+    prefetched_rows: list[list[str]] | None = None,
 ) -> tuple[list[str], dict[str, Optional[Decimal]], list[tuple[int, str]]]:
     """
     Read ``raw_balances`` preserving **row order** (column A top to bottom).
@@ -284,6 +308,12 @@ def read_raw_balances_ordered(
     as ``None``. If the same code appears twice, the **last** row wins for the
     merged dict; ``row_codes`` lists **every** data row as ``(1-based row, code)``
     so the balance column can be updated per row.
+
+    Parameters
+    ----------
+    prefetched_rows
+        If provided, used instead of calling ``ws.get_all_values()`` (avoids an
+        extra API round-trip when the caller already holds the rows).
 
     Returns
     -------
@@ -294,7 +324,7 @@ def read_raw_balances_ordered(
     row_codes
         ``(sheet_row_number, account_code)`` for each non-empty column A row.
     """
-    rows = ws.get_all_values()
+    rows = prefetched_rows if prefetched_rows is not None else ws.get_all_values()
     if not rows:
         return [], {}, []
     bal_idx = _balance_column_index(rows[0])
@@ -360,10 +390,18 @@ def apply_merged_balances_to_raw_sheet(
     row_codes: list[tuple[int, str]],
     header_row: list[str],
     new_codes_sorted: list[str],
+    *,
+    current_row_count: int | None = None,
 ) -> None:
     """
     Write merged balances **only** into the balance column for existing rows;
     append new rows with column **A** + balance column only (B,C,E,F untouched).
+
+    Parameters
+    ----------
+    current_row_count
+        Number of rows currently on the sheet (avoids an extra ``get_all_values``
+        call when the caller already knows it).
     """
     bal_col = _balance_column_letter(header_row)
     updates: list[dict] = []
@@ -372,8 +410,9 @@ def apply_merged_balances_to_raw_sheet(
         cell = "" if bal is None else format_balance_for_ru_sheet(bal)
         updates.append({"range": f"{bal_col}{rownum}", "values": [[cell]]})
 
-    rows = ws.get_all_values()
-    next_row = len(rows) + 1
+    if current_row_count is None:
+        current_row_count = len(ws.get_all_values())
+    next_row = current_row_count + 1
     for code in new_codes_sorted:
         bal = final.get(code)
         if bal is None:
@@ -404,12 +443,14 @@ def write_company_totals(
     ws_balances,
     companies: list[dict[str, Any]],
     balances_by_account: dict[str, Decimal],
+    *,
+    prefetched_data: list[list[str]] | None = None,
 ) -> None:
     """
-    Sum each company's ``accounts`` plus column **G** on the same row (deposit),
-    and write the **numeric** total to ``google_total_cell`` (legacy path).
+    Sum each company's ``accounts`` plus column **G** when **J** on the same row is
+    today, and write the **numeric** total to ``google_total_cell`` (legacy path).
     """
-    all_data = ws_balances.get_all_values()
+    all_data = prefetched_data if prefetched_data is not None else ws_balances.get_all_values()
     updates: list[dict] = []
     for co in companies:
         if not co.get("active", True):
@@ -419,7 +460,7 @@ def write_company_totals(
             continue
         accs = co.get("accounts") or []
         acct_sum = sum(balances_by_account.get(a, Decimal(0)) for a in accs)
-        dep = _deposit_numeric_same_row(all_data, str(cell))
+        dep = _deposit_amount_if_mature_today(all_data, str(cell))
         total = acct_sum + dep
         updates.append(
             {"range": cell, "values": [[format_balance_for_ru_sheet(total)]]}
@@ -435,11 +476,13 @@ def write_company_total_formulas(
     *,
     raw_sheet_title: str,
     formula_locale: str,
+    prefetched_data: list[list[str]] | None = None,
 ) -> None:
     """
-    Write one **formula** per ``google_total_cell``: raw sum plus **literal** G value.
+    Write one **formula** per ``google_total_cell``: raw sum plus **G** as a **literal**
+    only when **J** (parsed in Python) is the run date.
     """
-    all_data = ws_balances.get_all_values()
+    all_data = prefetched_data if prefetched_data is not None else ws_balances.get_all_values()
     updates: list[dict] = []
     for co in companies:
         if not co.get("active", True):
@@ -448,17 +491,42 @@ def write_company_total_formulas(
         if not cell:
             continue
         accs = [str(a) for a in (co.get("accounts") or []) if a]
-        dep_amt = _deposit_numeric_same_row(all_data, str(cell))
+        dep = _deposit_amount_if_mature_today(all_data, str(cell))
         formula = _company_total_formula(
             raw_sheet_title,
             accs,
             locale=formula_locale,
-            deposit_addend=dep_amt,
+            deposit_addend=dep,
         )
         updates.append({"range": cell, "values": [[formula]]})
     if updates:
         ws_balances.batch_update(updates, value_input_option="USER_ENTERED")
         log.info("Updated %d company total cells (formulas)", len(updates))
+
+
+# Google Sheets hard limit per cell is 50k characters; stay slightly under.
+_SHEETS_CELL_CHAR_SOFT_LIMIT = 50_000
+
+
+def write_account_balances_telegram_outbox(ws_balances, text: str) -> None:
+    """
+    Write the Telegram report body to **P1** on the Account_balances worksheet
+    (e.g. for a sheet-bound Apps Script that posts to Telegram and clears **P1**).
+    Longer text is truncated with a log warning.
+    """
+    body = text or ""
+    if len(body) > _SHEETS_CELL_CHAR_SOFT_LIMIT:
+        log.warning(
+            "Telegram outbox: truncating P1 from %d to %d characters",
+            len(body),
+            _SHEETS_CELL_CHAR_SOFT_LIMIT,
+        )
+        body = body[: _SHEETS_CELL_CHAR_SOFT_LIMIT]
+    ws_balances.batch_update(
+        [{"range": "P1", "values": [[body]]}],
+        value_input_option="USER_ENTERED",
+    )
+    log.info("Account_balances!P1: wrote Telegram text (%d chars)", len(body))
 
 
 def sync(
@@ -471,7 +539,7 @@ def sync(
     *,
     formula_locale: str = "ru",
     account_balances_use_formulas: bool = True,
-) -> Any:
+) -> SyncResult:
     """
     Merge ``pdf_updates`` into the Raw sheet, then refresh company totals on
     ``Account_balances`` (formulas or numbers).
@@ -483,42 +551,66 @@ def sync(
     Other columns are not modified. New codes from PDFs only: one new row each with
     column A + balance only (append at bottom, sorted by code).
 
+    Returns
+    -------
+    SyncResult
+        Open worksheet handles, merged balances (in-memory), and a snapshot of
+        ``Account_balances`` rows — so callers need no extra API calls.
     """
     gc = open_client(credentials_path)
     sh = gc.open(spreadsheet_name)
     ws_raw = ensure_worksheet(sh, raw_sheet)
     ws_bal = sh.worksheet(balances_sheet)
 
-    _, existing, row_codes = read_raw_balances_ordered(ws_raw)
+    # One read of Raw sheet — reused for merge and header detection.
+    raw_rows = ws_raw.get_all_values()
+    _, existing, row_codes = read_raw_balances_ordered(ws_raw, prefetched_rows=raw_rows)
     final: dict[str, Optional[Decimal]] = dict(existing)
     final.update(pdf_updates)
     if not final:
         log.warning(
             "Raw_balances empty and no PDF parses — leaving company cells unchanged"
         )
-        return ws_bal
+        all_bal_data = ws_bal.get_all_values()
+        return SyncResult(
+            ws_bal=ws_bal,
+            ws_raw=ws_raw,
+            final_balances=final,
+            balances_sheet_data=all_bal_data,
+        )
     in_sheet = {c for _, c in row_codes}
     tail = sorted(k for k in pdf_updates if k not in in_sheet)
     if pdf_updates:
-        rows_all = ws_raw.get_all_values()
-        header_row = (
-            rows_all[0] if rows_all else list(RAW_HEADER_EXTENDED)
-        )
+        header_row = raw_rows[0] if raw_rows else list(RAW_HEADER_EXTENDED)
         apply_merged_balances_to_raw_sheet(
-            ws_raw, final, row_codes, header_row, tail
+            ws_raw, final, row_codes, header_row, tail,
+            current_row_count=len(raw_rows),
         )
+
+    # Write labels before reading Account_balances so the snapshot is up-to-date.
+    write_account_balance_labels(ws_bal, companies)
+
+    # One read of Account_balances — passed to write_company_* to avoid a second call.
+    all_bal_data = ws_bal.get_all_values()
+
     if account_balances_use_formulas:
         write_company_total_formulas(
             ws_bal,
             companies,
             raw_sheet_title=raw_sheet,
             formula_locale=formula_locale,
+            prefetched_data=all_bal_data,
         )
     else:
         write_company_totals(
             ws_bal,
             companies,
             {k: (v if v is not None else Decimal(0)) for k, v in final.items()},
+            prefetched_data=all_bal_data,
         )
-    write_account_balance_labels(ws_bal, companies)
-    return ws_bal
+    return SyncResult(
+        ws_bal=ws_bal,
+        ws_raw=ws_raw,
+        final_balances=final,
+        balances_sheet_data=all_bal_data,
+    )

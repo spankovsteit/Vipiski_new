@@ -28,9 +28,17 @@ from typing import Any
 
 def _fmt_money(d: Decimal) -> str:
     """Format for chat: thousands with space, decimal comma (RU-style)."""
-    v = float(d)
-    s = f"{v:,.2f}"
-    return s.replace(",", "X").replace(".", ",").replace("X", " ")
+    q = d.quantize(Decimal("0.01"))
+    s = format(q.copy_abs(), "f")
+    int_part, frac = s.split(".", 1) if "." in s else (s, "00")
+    frac = (frac + "00")[:2]
+    groups: list[str] = []
+    while int_part:
+        groups.append(int_part[-3:])
+        int_part = int_part[:-3]
+    spaced = " ".join(reversed(groups)) if groups else "0"
+    sign = "-" if q < 0 else ""
+    return f"{sign}{spaced},{frac}"
 
 
 # Explicit ordering for known section titles; unknown sections append sorted.

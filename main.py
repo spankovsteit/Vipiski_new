@@ -21,12 +21,14 @@ Data flow (high level)
    ``account_code`` from PDFs append one row (A + balance). Empty balance cells
    stay empty until a PDF fills them.
 6. **Google — Account_balances** — ``google_total_cell`` (column **D**) gets a
-   **formula**: sum from ``raw_balances`` plus the **число** from column **G** on
-   that row (вшивается в формулу как константа при прогоне; не ссылка ``G14``).
+   **formula**: sum from ``raw_balances`` plus the **число из G** as a literal when
+   **J** (срок депозита) matches the run date (**проверка в Python**, не в формуле).
+   With formulas off, the same date rule applies to the numeric total.
    Set ``VIPISKI_ACCOUNT_BALANCES_USE_FORMULAS=false`` for numeric totals.
    If Raw is empty and no PDF produced data, **totals are not touched**.
 7. **Telegram** — Build human-readable lines from Raw + ``companies`` + deposits
-   scraped from the same balance sheet; send (split if over ~4000 chars).
+   scraped from the same balance sheet; mirror the full text to **Account_balances!P1**;
+   then send (split if over ~4000 chars).
 
 Legacy note: ``Vipiski_ostatki.py`` used Excel (xlwings) as a scratch pad; this
 pipeline uses **Raw_balances** as per-account storage instead.
@@ -53,10 +55,8 @@ from vipiski.deposits import build_deposits_dict
 from vipiski.engine import parse_pdfs
 from vipiski.files import ingest_pdfs, remove_sources_only
 from vipiski.google_sync import (
-    ensure_worksheet,
-    open_client,
-    read_raw_balances,
     sync,
+    write_account_balances_telegram_outbox,
 )
 from vipiski.loaders import load_accounts, load_companies
 from vipiski.report import build_telegram_text
@@ -142,7 +142,7 @@ def main() -> int:
     ]
 
     try:
-        ws_bal = sync(
+        result = sync(
             settings.google_credentials_path,
             settings.google_spreadsheet_name,
             settings.google_worksheet_balances,
@@ -156,15 +156,11 @@ def main() -> int:
         log.exception("Google sync failed: %s", e)
         return 2
 
-    # Deposits still live on the main balance sheet (same columns as legacy script).
-    all_data = ws_bal.get_all_values()
-    deposits = build_deposits_dict(all_data)
-
-    # Re-open spreadsheet to read Raw after write (single sync() could return ws only).
-    gc = open_client(settings.google_credentials_path)
-    sh = gc.open(settings.google_spreadsheet_name)
-    ws_raw = ensure_worksheet(sh, settings.google_worksheet_raw)
-    balances = read_raw_balances(ws_raw)
+    # Balances are already in memory from sync — no extra API call needed.
+    balances: dict[str, Decimal] = {
+        k: (v if v is not None else Decimal(0))
+        for k, v in result.final_balances.items()
+    }
 
     # Avoid sending a useless "all zeros" message when nothing was ever seeded.
     if not balances and not parsed_updates:
@@ -175,7 +171,15 @@ def main() -> int:
     for c in active_codes:
         balances.setdefault(c, Decimal(0))
 
+    # Deposit annotations live on Account_balances (A/G/J); snapshot already in result.
+    deposits = build_deposits_dict(result.balances_sheet_data)
+
     text = build_telegram_text(companies, accounts, balances, deposits)
+    try:
+        write_account_balances_telegram_outbox(result.ws_bal, text)
+    except Exception as e:
+        log.exception("Failed to write Telegram text to Account_balances!P1: %s", e)
+
     if settings.skip_telegram:
         log.info("VIPISKI_SKIP_TELEGRAM set — message not sent (Google sync completed)")
     else:
