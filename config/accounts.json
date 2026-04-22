@@ -297,6 +297,15 @@
       "active": true
     },
     {
+      "account_code": "romashki_vtb",
+      "company_code": "romashki",
+      "display_name": "ООО Ромашки ВТБ",
+      "bank": "vtb",
+      "parser": "vtb_outgoing_balance",
+      "match_all": ["Владелец счета: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"РОМАШКИ\""],
+      "active": true
+    },
+    {
       "account_code": "smart_solution_sber",
       "company_code": "smart_solution",
       "display_name": "ООО Смарт Солюшн СБЕР",

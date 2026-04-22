@@ -140,7 +140,7 @@
       "section": "Управляющие компании",
       "google_total_cell": "D20",
       "account_balances_label": "РОМАШКИ ООО",
-      "accounts": ["romashki_bspb", "romashki_ukb", "romashki_sber"],
+      "accounts": ["romashki_bspb", "romashki_ukb", "romashki_sber", "romashki_vtb"],
       "active": true
     },
     {
