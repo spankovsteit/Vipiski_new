@@ -19,8 +19,8 @@ from vipiski.google_sync import (
 
 
 def test_format_balance_for_ru_sheet():
-    assert format_balance_for_ru_sheet(Decimal("672116.05")) == "672 116,05"
-    assert format_balance_for_ru_sheet(Decimal("1000")) == "1 000,00"
+    assert format_balance_for_ru_sheet(Decimal("672116.05")) == "672116,05"
+    assert format_balance_for_ru_sheet(Decimal("1000")) == "1000,00"
     assert format_balance_for_ru_sheet(Decimal("-1.5")) == "-1,50"
 
 

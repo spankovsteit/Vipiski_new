@@ -5,7 +5,7 @@
       "section": "Управляющие компании",
       "google_total_cell": "D2",
       "account_balances_label": "Парфененко М. А. ИП ЮКБ",
-      "accounts": ["parfenenko_ukb", "parfenenko_vtb"],
+      "accounts": ["parfenenko_sber","parfenenko_ukb", "parfenenko_vtb"],
       "active": true
     },
     {
@@ -203,7 +203,7 @@
       "section": "Балансодержатели",
       "google_total_cell": "D27",
       "account_balances_label": "М-ИНВЕСТ ООО",
-      "accounts": ["m_invest_ukb"],
+      "accounts": ["m_invest_ukb","m_invest_sber"],
       "active": true
     },
     {
@@ -239,7 +239,7 @@
       "section": "Ген подрядные компании",
       "google_total_cell": "D32",
       "account_balances_label": "СЭР ООО",
-      "accounts": ["ser_ukb", "ser_sber"],
+      "accounts": ["ser_ukb", "ser_sber","ser_vtb"],
       "active": true
     },
     {
@@ -311,7 +311,7 @@
       "section": "Управляющие компании",
       "google_total_cell": "D42",
       "account_balances_label": "МЕДИА 47 ООО",
-      "accounts": ["media47_sber"],
+      "accounts": ["media47_sber","media47_vtb"],
       "active": true
     },
     {

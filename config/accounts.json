@@ -2,10 +2,19 @@
     {
       "account_code": "parfenenko_ukb",
       "company_code": "parfenenko",
-      "display_name": "ИП Парфененко М.А.",
+      "display_name": "ИП Парфененко М.А. ЮКБ",
       "bank": "ukb",
       "parser": "ukb_holder_outgoing",
       "match_all": ["holder: ИППарфененко Мария Александровна"],
+      "active": true
+    },
+    {
+      "account_code": "parfenenko_sber",
+      "company_code": "parfenenko",
+      "display_name": "ИП Парфененко М.А. СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance",
+      "match_all": ["ИНДИВИДУАЛЬНЫЙ ПРЕДПРИНИМАТЕЛЬ ПАРФЕНЕНКО МАРИЯ АЛЕКСАНДРОВНА", "СберБизнес"],
       "active": true
     },
     {
@@ -20,7 +29,7 @@
     {
       "account_code": "manevich_ukb",
       "company_code": "manevich",
-      "display_name": "ИП Маневич А.Е.",
+      "display_name": "ИП Маневич А.Е. ЮКБ",
       "bank": "ukb",
       "parser": "ukb_holder_outgoing",
       "match_all": ["holder: ИПМАНЕВИЧ АЛЛАЕФИМОВНА"],
@@ -56,7 +65,7 @@
     {
       "account_code": "metro_ukb",
       "company_code": "metro",
-      "display_name": "ООО Метро",
+      "display_name": "ООО Метро ЮКБ",
       "bank": "ukb",
       "parser": "ukb_holder_outgoing",
       "match_all": ["holder: ООО\"Метро\""],
@@ -101,7 +110,7 @@
     {
       "account_code": "ankon_raiffeisen",
       "company_code": "ankon",
-      "display_name": "ООО Анкон",
+      "display_name": "ООО Анкон Райффайзен",
       "bank": "raiffeisen",
       "parser": "raiffeisen_outgoing_balance",
       "match_all": ["АНКОН"],
@@ -110,7 +119,7 @@
     {
       "account_code": "kudrovo_stroy_sber",
       "company_code": "kudrovo_stroy",
-      "display_name": "ООО Кудрово-Строй",
+      "display_name": "ООО Кудрово-Строй СБЕР",
       "bank": "sber",
       "parser": "sber_outgoing_balance",
       "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"КУДРОВО-СТРОЙ\"", "СберБизнес"],
@@ -155,7 +164,7 @@
     {
       "account_code": "partner_ukb",
       "company_code": "partner",
-      "display_name": "ООО Партнер",
+      "display_name": "ООО Партнер ЮКБ",
       "bank": "ukb",
       "parser": "ukb_holder_outgoing",
       "match_all": ["holder: ООО\"Партнер\""],
@@ -182,7 +191,7 @@
     {
       "account_code": "ohtinskaya_alleya_ukb",
       "company_code": "ohtinskaya_alleya",
-      "display_name": "ООО Охтинская аллея",
+      "display_name": "ООО Охтинская аллея ЮКБ",
       "bank": "ukb",
       "parser": "ukb_holder_outgoing",
       "match_all": ["holder: ООО\"Охтинская аллея\""],
@@ -209,7 +218,7 @@
     {
       "account_code": "h1_sovcom",
       "company_code": "h1",
-      "display_name": "ООО Н1",
+      "display_name": "ООО Н1 СОВКОМ",
       "bank": "sovcom",
       "parser": "sovcom_outgoing_balance",
       "match_all": ["Общество с ограниченной ответственностью \"Н1\""],
@@ -317,7 +326,7 @@
     {
       "account_code": "formula_ukb",
       "company_code": "formula",
-      "display_name": "ООО Формула",
+      "display_name": "ООО Формула ЮКБ",
       "bank": "ukb",
       "parser": "ukb_holder_outgoing",
       "match_all": ["holder: ООО\"Формула\""],
@@ -344,7 +353,7 @@
     {
       "account_code": "sityinvest_ukb",
       "company_code": "sityinvest",
-      "display_name": "ООО СитиИнвест",
+      "display_name": "ООО СитиИнвест ЮКБ",
       "bank": "ukb",
       "parser": "ukb_holder_outgoing",
       "match_all": ["holder: ООО\"СитиИнвест\""],
@@ -371,7 +380,7 @@
     {
       "account_code": "sev_zvezda_ukb",
       "company_code": "sev_zvezda",
-      "display_name": "ООО Северная звезда",
+      "display_name": "ООО Северная звезда ЮКБ",
       "bank": "ukb",
       "parser": "ukb_holder_outgoing",
       "match_all": ["holder: ООО\"Северная звезда\""],
@@ -389,7 +398,7 @@
     {
       "account_code": "dudergof_ukb",
       "company_code": "dudergof",
-      "display_name": "ООО Дудергоф",
+      "display_name": "ООО Дудергоф ЮКБ",
       "bank": "ukb",
       "parser": "ukb_holder_outgoing",
       "match_all": ["holder: ООО\"Дудергоф\""],
@@ -407,7 +416,7 @@
     {
       "account_code": "dudergof_invest_ukb",
       "company_code": "dudergof_invest",
-      "display_name": "ООО Дудергоф-Инвест",
+      "display_name": "ООО Дудергоф-Инвест ЮКБ",
       "bank": "ukb",
       "parser": "ukb_holder_outgoing",
       "match_all": ["holder: ООО\"Дудергоф-Инвест\""],
@@ -416,16 +425,25 @@
     {
       "account_code": "m_invest_ukb",
       "company_code": "m_invest",
-      "display_name": "ООО М-Инвест",
+      "display_name": "ООО М-Инвест ЮКБ",
       "bank": "ukb",
       "parser": "ukb_holder_outgoing",
       "match_all": ["holder: ООО\"М-Инвест\""],
       "active": true
     },
     {
+      "account_code": "m_invest_sber",
+      "company_code": "m_invest",
+      "display_name": "ООО М-Инвест СБЕР",
+      "bank": "sber",
+      "parser": "sber_outgoing_balance",
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ  \"М-ИНВЕСТ\"", "СберБизнес"],
+      "active": true
+    },
+    {
       "account_code": "sp_impost_ukb",
       "company_code": "sp_impost",
-      "display_name": "ООО СП-Импост",
+      "display_name": "ООО СП-Импост ЮКБ",
       "bank": "ukb",
       "parser": "ukb_holder_outgoing",
       "match_all": ["holder: ООО\"СП-Импост\""],
@@ -443,7 +461,7 @@
     {
       "account_code": "praga_ukb",
       "company_code": "praga",
-      "display_name": "ООО Прага",
+      "display_name": "ООО Прага ЮКБ",
       "bank": "ukb",
       "parser": "ukb_holder_outgoing",
       "match_all": ["holder: ООО\"Прага\""],
@@ -470,7 +488,7 @@
     {
       "account_code": "frank_ukb",
       "company_code": "frank",
-      "display_name": "ООО Франк",
+      "display_name": "ООО Франк ЮКБ",
       "bank": "ukb",
       "parser": "ukb_holder_outgoing",
       "match_all": ["holder: ООО\"Франк\""],
@@ -479,7 +497,7 @@
     {
       "account_code": "ser_ukb",
       "company_code": "ser",
-      "display_name": "ООО СЭР",
+      "display_name": "ООО СЭР ЮКБ",
       "bank": "ukb",
       "parser": "ukb_holder_outgoing",
       "match_all": ["holder: ООО\"СтройЭкспертРитейл\""],
@@ -495,9 +513,18 @@
       "active": true
     },
     {
+      "account_code": "ser_vtb",
+      "company_code": "ser",
+      "display_name": "ООО СЭР ВТБ",
+      "bank": "vtb",
+      "parser": "vtb_outgoing_balance",
+      "match_all": ["Владелец счета: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"СТРОЙЭКСПЕРТРИТЕЙЛ\""],
+      "active": true
+    },
+    {
       "account_code": "murino_grad_sber",
       "company_code": "murino_grad",
-      "display_name": "ООО Мурино-Град",
+      "display_name": "ООО Мурино-Град СБЕР",
       "bank": "sber",
       "parser": "sber_outgoing_balance_with_day_suffix",
       "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"МУРИНО-ГРАД\"", "СберБизнес"],
@@ -506,7 +533,7 @@
     {
       "account_code": "akvitania_ukb",
       "company_code": "akvitania",
-      "display_name": "ООО Аквитания",
+      "display_name": "ООО Аквитания ЮКБ",
       "bank": "ukb",
       "parser": "ukb_holder_outgoing",
       "match_all": ["holder: ООО\"Аквитания\""],
@@ -524,7 +551,7 @@
     {
       "account_code": "bergen_ukb",
       "company_code": "bergen",
-      "display_name": "ООО Берген",
+      "display_name": "ООО Берген ЮКБ",
       "bank": "ukb",
       "parser": "ukb_holder_outgoing",
       "match_all": ["holder: ООО\"БЕРГЕН\""],
@@ -542,7 +569,7 @@
     {
       "account_code": "immobi_ukb",
       "company_code": "immobi",
-      "display_name": "ООО Иммоби",
+      "display_name": "ООО Иммоби ЮКБ",
       "bank": "ukb",
       "parser": "ukb_holder_outgoing",
       "match_all": ["holder: ООО\"ИММОБИ\""],
@@ -560,7 +587,7 @@
     {
       "account_code": "kudrovo_invest_ukb",
       "company_code": "kudrovo_invest",
-      "display_name": "ООО Кудрово-Инвест",
+      "display_name": "ООО Кудрово-Инвест ЮКБ",
       "bank": "ukb",
       "parser": "ukb_holder_outgoing",
       "match_all": ["holder: ООО\"Кудрово-Инвест\""],
@@ -578,7 +605,7 @@
     {
       "account_code": "proektnye_resheniya_ukb",
       "company_code": "proektnye_resheniya",
-      "display_name": "ООО Проектные решения",
+      "display_name": "ООО Проектные решения ЮКБ",
       "bank": "ukb",
       "parser": "ukb_holder_outgoing",
       "match_all": ["holder: ООО\"Проектные Решения\""],
@@ -596,7 +623,7 @@
     {
       "account_code": "riteil_park_ukb",
       "company_code": "riteil_park",
-      "display_name": "ООО Ритейл Парк",
+      "display_name": "ООО Ритейл Парк ЮКБ",
       "bank": "ukb",
       "parser": "ukb_holder_outgoing",
       "match_all": ["holder: ООО\"Ритейл Парк\""],
@@ -614,16 +641,25 @@
     {
       "account_code": "media47_sber",
       "company_code": "media47",
-      "display_name": "ООО Медиа 47",
+      "display_name": "ООО Медиа 47 СБЕР",
       "bank": "sber",
       "parser": "sber_outgoing_balance",
       "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"МЕДИА 47\"", "СберБизнес"],
       "active": true
     },
     {
+      "account_code": "media47_vtb",
+      "company_code": "media47",
+      "display_name": "ООО Медиа 47 ВТБ",
+      "bank": "vtb",
+      "parser": "vtb_outgoing_balance",
+      "match_all": ["Владелец счета: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"МЕДИА 47\""],
+      "active": true
+    },
+    {
       "account_code": "gastropark_sovcom",
       "company_code": "gastropark",
-      "display_name": "ООО Гастропарк",
+      "display_name": "ООО Гастропарк СОВКОМ",
       "bank": "sovcom",
       "parser": "sovcom_outgoing_balance",
       "match_all": ["Общество с ограниченной ответственностью \"ГАСТРОПАРК\""],
@@ -632,7 +668,7 @@
     {
       "account_code": "on_index_bspb",
       "company_code": "on_index",
-      "display_name": "ООО ОН ИНДЕКС",
+      "display_name": "ООО ОН ИНДЕКС БСПБ",
       "bank": "bspb",
       "parser": "bspb_outgoing_balance",
       "match_all": ["Общество с ограниченной ответственностью \"ОН ИНДЕКС\""],

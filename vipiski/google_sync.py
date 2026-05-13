@@ -75,33 +75,24 @@ RAW_HEADER_EXTENDED = [
 
 def format_balance_for_ru_sheet(value: Decimal) -> str:
     """
-    String for ``USER_ENTERED`` in a Russian-locale spreadsheet: thousands
-    separated by spaces, comma as decimal separator (e.g. ``672 116,05``).
+    String for ``USER_ENTERED`` in a Russian-locale spreadsheet:
+    comma as decimal separator and **no** thousands separators
+    (e.g. ``672116,05``) to avoid text coercion in Google Sheets.
     """
     q = value.quantize(Decimal("0.01"))
     s = format(q, "f")
-    neg = s.startswith("-")
-    if neg:
-        s = s[1:]
-    if "." in s:
-        int_part, frac = s.split(".", 1)
-    else:
-        int_part, frac = s, "00"
-    frac = (frac + "00")[:2]
-    groups: list[str] = []
-    while int_part:
-        groups.append(int_part[-3:])
-        int_part = int_part[:-3]
-    spaced = " ".join(reversed(groups)) if groups else "0"
-    sign = "-" if neg else ""
-    return f"{sign}{spaced},{frac}"
+    return s.replace(".", ",")
 
 
 def open_client(credentials_path: Path):
     """Service-account client (sheet must be shared with the service email)."""
     if not credentials_path.is_file():
         raise FileNotFoundError(f"Google credentials not found: {credentials_path}")
-    return gspread.service_account(filename=str(credentials_path))
+    scopes = [
+        "https://www.googleapis.com/auth/spreadsheets",
+        "https://www.googleapis.com/auth/drive",
+    ]
+    return gspread.service_account(filename=str(credentials_path), scopes=scopes)
 
 
 def _a1_row_number(cell_ref: str) -> int:
