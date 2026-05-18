@@ -277,14 +277,17 @@ def parse_raiffeisen_outgoing(text: str) -> Decimal | None:
 
 
 def parse_tochka_outgoing(text: str) -> Decimal | None:
-    """Точка: ``Исходящее сальдо:`` — full match ``group(0)`` split on first ``:``."""
+    """Точка: outgoing balance can be labelled as сальдо or остаток."""
     try:
-        m = regex.search(r"Исходящее сальдо:\s*([\d\s,.]+)", text)
+        m = regex.search(
+            r"(?:Исходящее сальдо|Исходящий остаток):\s*([\d\s\xa0,.]+)",
+            text,
+        )
         if not m:
             return None
-        raw = m.group(0).replace(" ", "").replace(".", ",").split(":")[1]
+        raw = m.group(1).replace(".", ",")
         return parse_amount_ru(raw.replace(",", "."))
-    except (InvalidOperation, IndexError, AttributeError) as e:
+    except (InvalidOperation, AttributeError) as e:
         log.debug("tochka parse failed: %s", e)
         return None
 

@@ -51,6 +51,11 @@ def test_parse_tochka_outgoing():
     assert parse_tochka_outgoing(text) == Decimal("304067.14")
 
 
+def test_parse_tochka_outgoing_ostatok():
+    text = "Исходящий остаток:\n273 161,32Дата предыдущей операции\n"
+    assert parse_tochka_outgoing(text) == Decimal("273161.32")
+
+
 def test_run_parser_unknown_returns_none(caplog):
     import logging
 
