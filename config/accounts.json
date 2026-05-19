@@ -45,6 +45,15 @@
       "active": true
     },
     {
+      "account_code": "manevich_vtb",
+      "company_code": "manevich",
+      "display_name": "ИП Маневич А.Е. ВТБ",
+      "bank": "vtb",
+      "parser": "vtb_outgoing_balance",
+      "match_all": ["Владелец счета: ИНДИВИДУАЛЬНЫЙ ПРЕДПРИНИМАТЕЛЬ МАНЕВИЧ АЛЛА ЕФИМОВНА"],
+      "active": true
+    },
+    {
       "account_code": "steit_sber",
       "company_code": "steit",
       "display_name": "ООО Стейт СБЕР",
@@ -265,8 +274,17 @@
       "company_code": "reaktiv",
       "display_name": "ООО Реактив СБЕР",
       "bank": "sber",
-      "parser": "sber_outgoing_balance_with_day_suffix",
+      "parser": "vtb_outgoing_balance",
       "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"РЕАКТИВ\"", "СберБизнес"],
+      "active": true
+    },
+    {
+      "account_code": "reaktiv_vtb",
+      "company_code": "reaktiv",
+      "display_name": "ООО Реактив ВТБ",
+      "bank": "vtb",
+      "parser": "vtb_outgoing_balance",
+      "match_all": ["Владелец счета: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"РЕАКТИВ\""],
       "active": true
     },
     {

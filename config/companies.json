@@ -14,7 +14,7 @@
       "section": "Управляющие компании",
       "google_total_cell": "D3",
       "account_balances_label": "Маневич А. Е. ИП",
-      "accounts": ["manevich_ukb", "manevich_sber"],
+      "accounts": ["manevich_ukb", "manevich_sber", "manevich_vtb"],
       "active": true
     },
     {
@@ -131,7 +131,7 @@
       "section": "Управляющие компании",
       "google_total_cell": "D19",
       "account_balances_label": "РЕАКТИВ ООО",
-      "accounts": ["reaktiv_bspb", "reaktiv_sber"],
+      "accounts": ["reaktiv_bspb", "reaktiv_sber", "reaktiv_vtb"],
       "active": true
     },
     {
