@@ -176,7 +176,7 @@
       "section": "Балансодержатели",
       "google_total_cell": "D25",
       "account_balances_label": "СЕВЕРНАЯ ЗВЕЗДА ООО",
-      "accounts": ["sev_zvezda_ukb", "sev_zvezda_sber"],
+      "accounts": ["sev_zvezda_ukb", "sev_zvezda_sber", "sev_zvezda_vtb"],
       "active": true
     },
     {

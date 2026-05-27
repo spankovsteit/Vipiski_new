@@ -50,7 +50,7 @@
       "display_name": "ИП Маневич А.Е. ВТБ",
       "bank": "vtb",
       "parser": "vtb_outgoing_balance",
-      "match_all": ["Владелец счета: ИНДИВИДУАЛЬНЫЙ ПРЕДПРИНИМАТЕЛЬ МАНЕВИЧ АЛЛА ЕФИМОВНА"],
+      "match_all": ["Владелец счета: Индивидуальный предприниматель МАНЕВИЧ АЛЛА ЕФИМОВНА"],
       "active": true
     },
     {
@@ -274,7 +274,7 @@
       "company_code": "reaktiv",
       "display_name": "ООО Реактив СБЕР",
       "bank": "sber",
-      "parser": "vtb_outgoing_balance",
+      "parser": "sber_outgoing_balance",
       "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"РЕАКТИВ\"", "СберБизнес"],
       "active": true
     },
@@ -414,6 +414,15 @@
       "active": true
     },
     {
+      "account_code": "sev_zvezda_vtb",
+      "company_code": "sev_zvezda",
+      "display_name": "ООО Северная звезда ВТБ",
+      "bank": "vtb",
+      "parser": "vtb_outgoing_balance",
+      "match_all": ["Владелец счета: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"СЕВЕРНАЯ ЗВЕЗДА\""],
+      "active": true
+    },
+    {
       "account_code": "dudergof_ukb",
       "company_code": "dudergof",
       "display_name": "ООО Дудергоф ЮКБ",
@@ -455,7 +464,7 @@
       "display_name": "ООО М-Инвест СБЕР",
       "bank": "sber",
       "parser": "sber_outgoing_balance",
-      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ  \"М-ИНВЕСТ\"", "СберБизнес"],
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"М-ИНВЕСТ\"", "СберБизнес"],
       "active": true
     },
     {
@@ -473,7 +482,7 @@
       "display_name": "ООО СП-Импост СБЕР",
       "bank": "sber",
       "parser": "sber_outgoing_balance",
-      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ  \"СП-ИМПОСТ\"", "СберБизнес"],
+      "match_all": ["ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"СП-ИМПОСТ\"", "СберБизнес"],
       "active": true
     },
     {

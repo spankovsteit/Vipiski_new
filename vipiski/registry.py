@@ -123,6 +123,17 @@ DEFAULT_ACCOUNTS: list[dict[str, Any]] = [
         "active": True,
     },
     {
+        "account_code": "manevich_vtb",
+        "company_code": "manevich",
+        "display_name": "ИП Маневич А.Е. ВТБ",
+        "bank": "vtb",
+        "parser": "vtb_outgoing_balance",
+        "match_all": [
+            "Владелец счета: Индивидуальный предприниматель МАНЕВИЧ АЛЛА ЕФИМОВНА"
+        ],
+        "active": True,
+    },
+    {
         "account_code": "steit_sber",
         "company_code": "steit",
         "display_name": 'ООО "СТЕЙТ" СБЕР',
@@ -372,7 +383,7 @@ DEFAULT_ACCOUNTS: list[dict[str, Any]] = [
         "company_code": "reaktiv",
         "display_name": 'ООО "Реактив" СБЕР',
         "bank": "sber",
-        "parser": "sber_outgoing_balance_with_day_suffix",
+        "parser": "sber_outgoing_balance",
         "match_all": [
             'ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "РЕАКТИВ"',
             "СберБизнес",
@@ -518,6 +529,17 @@ DEFAULT_ACCOUNTS: list[dict[str, Any]] = [
         "active": True,
     },
     {
+        "account_code": "sev_zvezda_vtb",
+        "company_code": "sev_zvezda",
+        "display_name": 'ООО "Северная звезда" ВТБ',
+        "bank": "vtb",
+        "parser": "vtb_outgoing_balance",
+        "match_all": [
+            'Владелец счета: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "СЕВЕРНАЯ ЗВЕЗДА"'
+        ],
+        "active": True,
+    },
+    {
         "account_code": "dudergof_ukb",
         "company_code": "dudergof",
         "display_name": 'ООО "Дудергоф"',
@@ -548,6 +570,18 @@ DEFAULT_ACCOUNTS: list[dict[str, Any]] = [
         "active": True,
     },
     {
+        "account_code": "m_invest_sber",
+        "company_code": "m_invest",
+        "display_name": 'ООО "М-Инвест" СБЕР',
+        "bank": "sber",
+        "parser": "sber_outgoing_balance",
+        "match_all": [
+            'ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "М-ИНВЕСТ"',
+            "СберБизнес",
+        ],
+        "active": True,
+    },
+    {
         "account_code": "sp_impost_ukb",
         "company_code": "sp_impost",
         "display_name": 'ООО "СП-Импост"',
@@ -563,7 +597,7 @@ DEFAULT_ACCOUNTS: list[dict[str, Any]] = [
         "bank": "sber",
         "parser": "sber_outgoing_balance",
         "match_all": [
-            'ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ  "СП-ИМПОСТ"',
+            'ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "СП-ИМПОСТ"',
             "СберБизнес",
         ],
         "active": True,
@@ -976,7 +1010,7 @@ DEFAULT_COMPANIES: list[dict[str, Any]] = [
         "display_name": 'ООО "Северная звезда"',
         "section": "Балансодержатели",
         "google_total_cell": "D25",
-        "accounts": ["sev_zvezda_ukb", "sev_zvezda_sber"],
+        "accounts": ["sev_zvezda_ukb", "sev_zvezda_sber", "sev_zvezda_vtb"],
         "active": True,
     },
     {
