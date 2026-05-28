@@ -29,6 +29,20 @@ import urllib.request
 
 log = logging.getLogger(__name__)
 
+class TelegramSendError(RuntimeError):
+    """Structured Telegram delivery error with retry context."""
+
+    def __init__(
+        self,
+        message: str,
+        *,
+        transient: bool,
+        attempts: int,
+    ) -> None:
+        super().__init__(message)
+        self.transient = transient
+        self.attempts = attempts
+
 
 def send_telegram_message(
     token: str,
@@ -43,7 +57,8 @@ def send_telegram_message(
     Send ``text`` to ``chat_id``; split into chunks if longer than ``max_len``.
 
     Retries on connection/SSL/timeouts (common behind corporate proxies or flaky
-    networks). After all retries fail, re-raises the last ``URLError``.
+    networks). After all retries fail, raises ``TelegramSendError`` with a
+    ``transient`` flag.
     """
     if timeout is None:
         timeout = float(os.environ.get("VIPISKI_TELEGRAM_TIMEOUT", "180"))
@@ -87,6 +102,11 @@ def send_telegram_message(
                     e,
                     wait,
                 )
-                time.sleep(wait)
+                if attempt < max_retries - 1:
+                    time.sleep(wait)
         if last_err is not None:
-            raise last_err
+            raise TelegramSendError(
+                f"Telegram send failed after {max_retries} attempt(s): {last_err}",
+                transient=True,
+                attempts=max_retries,
+            ) from last_err

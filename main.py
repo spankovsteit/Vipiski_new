@@ -52,7 +52,8 @@ from vipiski.dates import (
     statement_reference_date,
 )
 from vipiski.deposits import build_deposits_dict
-from vipiski.engine import parse_pdfs
+from vipiski.account_sync import sync_accounts_from_default_excel
+from vipiski.engine import parse_pdfs_with_unmatched
 from vipiski.files import ingest_pdfs, remove_sources_only
 from vipiski.google_sync import (
     sync,
@@ -61,7 +62,7 @@ from vipiski.google_sync import (
 from vipiski.loaders import load_accounts, load_companies
 from vipiski.report import build_telegram_text
 from vipiski.settings import load_settings, ROOT
-from vipiski.telegram_client import send_telegram_message
+from vipiski.telegram_client import TelegramSendError, send_telegram_message
 
 
 def setup_logging(log_file: Path) -> None:
@@ -133,13 +134,40 @@ def main() -> int:
     log.info("Sber parser tokens: day=%s month_letter=%s (ref date %s)", daysbr, monthsbr, ref)
 
     # One winning account per PDF file (first matching rule in list order).
-    parsed_updates = parse_pdfs(
+    parsed_updates, unmatched_pdf_paths = parse_pdfs_with_unmatched(
         pdf_paths, accounts, daysbr=daysbr, monthsbr=monthsbr
     )
+    if unmatched_pdf_paths:
+        sync_stats = sync_accounts_from_default_excel(
+            accounts_json_path=settings.accounts_config_path,
+            companies_json_path=settings.companies_config_path,
+        )
+        if sync_stats.added_accounts > 0:
+            if sync_stats.dry_run:
+                log.info(
+                    "Excel sync dry-run enabled; config files were not changed, skip re-parse"
+                )
+            else:
+                log.info(
+                    "Re-loading config after Excel sync (%d new accounts)",
+                    sync_stats.added_accounts,
+                )
+                accounts = load_accounts(settings.accounts_config_path)
+                companies = load_companies(settings.companies_config_path)
+                reparsed_updates, still_unmatched = parse_pdfs_with_unmatched(
+                    unmatched_pdf_paths, accounts, daysbr=daysbr, monthsbr=monthsbr
+                )
+                parsed_updates.update(reparsed_updates)
+                if still_unmatched:
+                    log.info(
+                        "Still unmatched after Excel sync: %d file(s)",
+                        len(still_unmatched),
+                    )
 
     active_codes = [
         a["account_code"] for a in accounts if a.get("active", True)
     ]
+    account_meta = {str(a.get("account_code")): a for a in accounts if a.get("account_code")}
 
     try:
         result = sync(
@@ -151,6 +179,7 @@ def main() -> int:
             companies,
             formula_locale=settings.sheets_formula_locale,
             account_balances_use_formulas=settings.account_balances_use_formulas,
+            account_meta=account_meta,
         )
     except Exception as e:
         log.exception("Google sync failed: %s", e)
@@ -187,6 +216,23 @@ def main() -> int:
             send_telegram_message(
                 settings.telegram_token, settings.telegram_chat_id, text
             )
+        except TelegramSendError as e:
+            # Network-level Telegram failures should not roll back successful Google sync.
+            if e.transient:
+                log.warning(
+                    "Telegram transient failure after %d attempt(s): %s. "
+                    "Google sync succeeded; message remains in Account_balances!P1.",
+                    e.attempts,
+                    e,
+                )
+                return 0
+            log.exception("Telegram failed (non-transient): %s", e)
+            if settings.telegram_soft_fail:
+                log.warning(
+                    "VIPISKI_TELEGRAM_SOFT_FAIL: exiting with success despite Telegram error"
+                )
+                return 0
+            return 3
         except Exception as e:
             log.exception("Telegram failed: %s", e)
             if settings.telegram_soft_fail:

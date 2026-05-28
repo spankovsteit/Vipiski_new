@@ -383,6 +383,7 @@ def apply_merged_balances_to_raw_sheet(
     new_codes_sorted: list[str],
     *,
     current_row_count: int | None = None,
+    account_meta: dict[str, dict[str, Any]] | None = None,
 ) -> None:
     """
     Write merged balances **only** into the balance column for existing rows;
@@ -408,13 +409,18 @@ def apply_merged_balances_to_raw_sheet(
         bal = final.get(code)
         if bal is None:
             continue
-        updates.append({"range": f"A{next_row}", "values": [[code]]})
-        updates.append(
-            {
-                "range": f"{bal_col}{next_row}",
-                "values": [[format_balance_for_ru_sheet(bal)]],
-            }
-        )
+        meta = (account_meta or {}).get(code, {})
+        business_date = str(meta.get("business_date") or date.today().strftime("%d.%m.%Y"))
+        active = bool(meta.get("active", True))
+        row_vals = [
+            code,
+            str(meta.get("company_code") or ""),
+            str(meta.get("bank") or ""),
+            format_balance_for_ru_sheet(bal),
+            business_date,
+            active,
+        ]
+        updates.append({"range": f"A{next_row}:F{next_row}", "values": [row_vals]})
         next_row += 1
 
     if not updates:
@@ -530,6 +536,7 @@ def sync(
     *,
     formula_locale: str = "ru",
     account_balances_use_formulas: bool = True,
+    account_meta: dict[str, dict[str, Any]] | None = None,
 ) -> SyncResult:
     """
     Merge ``pdf_updates`` into the Raw sheet, then refresh company totals on
@@ -576,6 +583,7 @@ def sync(
         apply_merged_balances_to_raw_sheet(
             ws_raw, final, row_codes, header_row, tail,
             current_row_count=len(raw_rows),
+            account_meta=account_meta,
         )
 
     # Write labels before reading Account_balances so the snapshot is up-to-date.

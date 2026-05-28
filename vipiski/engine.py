@@ -94,3 +94,60 @@ def parse_pdfs(
         if not matched:
             log.info("No rule matched for %s", pdf_path.name)
     return updates
+
+
+def parse_pdfs_with_unmatched(
+    pdf_paths: list[Path],
+    account_rules: list[dict],
+    *,
+    daysbr: str,
+    monthsbr: str,
+) -> tuple[dict[str, Decimal], list[Path]]:
+    """
+    Parse PDFs and also return files that produced no successful account update.
+
+    A file is considered unmatched when no rule matched or matched parser returned
+    ``None`` for all matching rules.
+    """
+    updates: dict[str, Decimal] = {}
+    unmatched: list[Path] = []
+    for pdf_path in pdf_paths:
+        if not pdf_path.is_file():
+            continue
+        try:
+            text = extract_pdf_text(pdf_path)
+        except Exception as e:
+            log.error("Failed to read PDF %s: %s", pdf_path, e)
+            unmatched.append(pdf_path)
+            continue
+        if not text.strip():
+            log.warning("Empty text from %s", pdf_path)
+            unmatched.append(pdf_path)
+            continue
+        matched = False
+        for rule in account_rules:
+            if not rule.get("active", True):
+                continue
+            needles = rule.get("match_all") or []
+            if not all(n in text for n in needles):
+                continue
+            parser_name = rule["parser"]
+            val = run_parser(
+                parser_name, text, daysbr=daysbr, monthsbr=monthsbr
+            )
+            if val is None:
+                log.warning(
+                    "Rule matched but parse failed: %s (%s)",
+                    rule.get("account_code"),
+                    pdf_path.name,
+                )
+                continue
+            code = rule["account_code"]
+            updates[code] = val
+            log.info("Parsed %s = %s from %s", code, val, pdf_path.name)
+            matched = True
+            break
+        if not matched:
+            log.info("No rule matched for %s", pdf_path.name)
+            unmatched.append(pdf_path)
+    return updates, unmatched
