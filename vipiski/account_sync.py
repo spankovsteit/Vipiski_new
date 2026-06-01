@@ -77,7 +77,16 @@ def _digits_only(s: str) -> str:
 
 def _bank_code(raw: str) -> str | None:
     n = _norm_text(raw)
-    return _BANK_ALIASES.get(n)
+    if not n:
+        return None
+    exact = _BANK_ALIASES.get(n)
+    if exact:
+        return exact
+    # 1C exports full bank names, e.g. "СЕВЕРО-ЗАПАДНЫЙ БАНК ПАО СБЕРБАНК".
+    for alias, code in sorted(_BANK_ALIASES.items(), key=lambda x: -len(x[0])):
+        if alias in n:
+            return code
+    return None
 
 
 def _account_code(base_company_code: str, bank_code: str, account_number: str, existing: set[str]) -> str:
@@ -123,23 +132,54 @@ def _write_json(path: Path, data: list[dict[str, Any]]) -> None:
     )
 
 
-def _worksheet_header_index(header: list[str]) -> dict[str, int]:
+_HEADER_SCAN_MAX_ROWS = 50
+
+
+def _worksheet_header_index(
+    header: list[str], *, strict: bool = True
+) -> dict[str, int] | None:
     aliases: dict[str, tuple[str, ...]] = {
-        "company": ("организация", "компания", "наименование", "контрагент"),
+        "company": (
+            "организация",
+            "компания",
+            "наименование",
+            "контрагент",
+            "владелец",
+        ),
         "bank": ("банк", "bank"),
-        "account": ("расчетный счет", "расчётный счет", "счет", "счёт", "account"),
+        "account": (
+            "расчетный счет",
+            "расчётный счет",
+            "номер счета",
+            "номер счёта",
+            "счет",
+            "счёт",
+            "account",
+        ),
     }
     out: dict[str, int] = {}
     normalized = [_norm_text(str(c)) for c in header]
     for key, keys in aliases.items():
         for i, val in enumerate(normalized):
+            if not val:
+                continue
             if any(k in val for k in keys):
                 out[key] = i
                 break
     missing = [k for k in ("company", "bank", "account") if k not in out]
     if missing:
-        raise ValueError(f"Missing required Excel columns: {missing}")
+        if strict:
+            raise ValueError(f"Missing required Excel columns: {missing}")
+        return None
     return out
+
+
+def _find_header_row_index(rows: list[tuple[Any, ...]]) -> int | None:
+    for i in range(min(_HEADER_SCAN_MAX_ROWS, len(rows))):
+        header = [str(c or "") for c in rows[i]]
+        if _worksheet_header_index(header, strict=False):
+            return i
+    return None
 
 
 def _iter_excel_rows(xlsx_path: Path, sheet_name: str | None = None) -> list[tuple[str, str, str]]:
@@ -151,10 +191,20 @@ def _iter_excel_rows(xlsx_path: Path, sheet_name: str | None = None) -> list[tup
         wb.close()
     if not rows:
         return []
-    header = [str(c or "") for c in rows[0]]
+    header_row_idx = _find_header_row_index(rows)
+    if header_row_idx is None:
+        log.warning(
+            "Excel %s: no header row with company/bank/account columns in first %d rows (skip sync)",
+            xlsx_path,
+            _HEADER_SCAN_MAX_ROWS,
+        )
+        return []
+    header = [str(c or "") for c in rows[header_row_idx]]
     idx = _worksheet_header_index(header)
+    assert idx is not None
+    log.debug("Excel header at row %d: %s", header_row_idx + 1, header)
     out: list[tuple[str, str, str]] = []
-    for row in rows[1:]:
+    for row in rows[header_row_idx + 1 :]:
         if row is None:
             continue
         company = str(row[idx["company"]] or "").strip()

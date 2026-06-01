@@ -25,6 +25,32 @@ def _make_excel(path: Path, rows: list[tuple[str, str, str]]) -> None:
     wb.save(path)
 
 
+def _make_1c_export_excel(path: Path, rows: list[tuple[str, str, str]]) -> None:
+    """1C list export: metadata rows, then header on row 8 (0-based index 7)."""
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Лист_1"
+    for _ in range(6):
+        ws.append([None] * 8)
+    ws.append(["Отбор: Владелец.Сокращенное наименование Заполнено"] + [None] * 7)
+    ws.append([None] * 8)
+    ws.append(
+        [
+            "Номер счета",
+            None,
+            None,
+            "Владелец.Сокращенное наименование",
+            None,
+            None,
+            "Банк.Наименование",
+            "Количество записей",
+        ]
+    )
+    for company, bank, account in rows:
+        ws.append([account, None, None, company, None, None, bank, 1])
+    wb.save(path)
+
+
 def test_sync_accounts_from_excel_adds_accounts_and_company_links(tmp_path: Path):
     accounts_path = tmp_path / "accounts.json"
     companies_path = tmp_path / "companies.json"
@@ -72,6 +98,29 @@ def test_sync_accounts_from_excel_adds_accounts_and_company_links(tmp_path: Path
     accs = companies[0]["accounts"]
     assert "reaktiv_sber_1234" in accs
     assert "reaktiv_vtb_5678" in accs
+
+
+def test_sync_accounts_from_1c_export_layout(tmp_path: Path):
+    accounts_path = tmp_path / "accounts.json"
+    companies_path = tmp_path / "companies.json"
+    excel_path = tmp_path / "Расчетные счета.xlsx"
+    _write_json(accounts_path, [])
+    _write_json(
+        companies_path,
+        [{"company_code": "reaktiv", "display_name": 'ООО "Реактив"', "accounts": [], "active": True}],
+    )
+    _make_1c_export_excel(
+        excel_path,
+        [('ООО "Реактив"', "СЕВЕРО-ЗАПАДНЫЙ БАНК ПАО СБЕРБАНК", "40702810900000001234")],
+    )
+    stats = sync_accounts_from_excel(
+        excel_path=excel_path,
+        accounts_json_path=accounts_path,
+        companies_json_path=companies_path,
+    )
+    assert stats.added_accounts == 1
+    accounts = json.loads(accounts_path.read_text(encoding="utf-8"))
+    assert accounts[0]["account_code"] == "reaktiv_sber_1234"
 
 
 def test_sync_accounts_from_excel_idempotent(tmp_path: Path):

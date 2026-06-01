@@ -52,7 +52,7 @@ from vipiski.dates import (
     statement_reference_date,
 )
 from vipiski.deposits import build_deposits_dict
-from vipiski.account_sync import sync_accounts_from_default_excel
+from vipiski.account_sync import SyncStats, sync_accounts_from_default_excel
 from vipiski.engine import parse_pdfs_with_unmatched
 from vipiski.files import ingest_pdfs, remove_sources_only
 from vipiski.google_sync import (
@@ -138,10 +138,14 @@ def main() -> int:
         pdf_paths, accounts, daysbr=daysbr, monthsbr=monthsbr
     )
     if unmatched_pdf_paths:
-        sync_stats = sync_accounts_from_default_excel(
-            accounts_json_path=settings.accounts_config_path,
-            companies_json_path=settings.companies_config_path,
-        )
+        try:
+            sync_stats = sync_accounts_from_default_excel(
+                accounts_json_path=settings.accounts_config_path,
+                companies_json_path=settings.companies_config_path,
+            )
+        except Exception as e:
+            log.warning("Excel account sync failed (continuing): %s", e)
+            sync_stats = SyncStats(0, 0, 0, dry_run=False)
         if sync_stats.added_accounts > 0:
             if sync_stats.dry_run:
                 log.info(
