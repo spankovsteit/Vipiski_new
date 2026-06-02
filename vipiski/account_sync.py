@@ -113,6 +113,20 @@ def _match_all_for_bank(bank_code: str, account_number: str) -> list[str]:
     return [account_number]
 
 
+def _extract_account_digits(rule: dict[str, Any]) -> str:
+    return _digits_only(" ".join(str(x) for x in (rule.get("match_all") or [])))
+
+
+def _ensure_match_all_has_account_number(rule: dict[str, Any], account_number: str) -> None:
+    account_number = _digits_only(account_number)
+    if not account_number:
+        return
+    existing = list(rule.get("match_all") or [])
+    if any(account_number in _digits_only(str(x)) for x in existing):
+        return
+    rule["match_all"] = [account_number, *existing]
+
+
 def _read_json(path: Path) -> list[dict[str, Any]]:
     if not path.is_file():
         return []
@@ -250,7 +264,7 @@ def sync_accounts_from_excel(
         (
             str(a.get("company_code") or ""),
             str(a.get("bank") or ""),
-            _digits_only(" ".join(str(x) for x in (a.get("match_all") or []))),
+            _extract_account_digits(a),
         )
         for a in accounts
     }
@@ -259,6 +273,7 @@ def sync_accounts_from_excel(
     added_accounts = 0
     linked_company_accounts = 0
     skipped_rows = 0
+    updated_existing_rules = 0
 
     dry_run_candidates: list[str] = []
     for company_name, bank_raw, account_number in rows:
@@ -278,6 +293,22 @@ def sync_accounts_from_excel(
 
         triplet = (company_code, bank_code, account_number)
         if triplet in existing_triplets:
+            continue
+        # Legacy manual rules often have (company, bank) but no account digits in match_all.
+        # In this case enrich the existing rule instead of creating a duplicate account_code.
+        legacy_candidates = [
+            a
+            for a in accounts
+            if str(a.get("company_code") or "") == company_code
+            and str(a.get("bank") or "") == bank_code
+            and not _extract_account_digits(a)
+        ]
+        if legacy_candidates:
+            before = list(legacy_candidates[0].get("match_all") or [])
+            _ensure_match_all_has_account_number(legacy_candidates[0], account_number)
+            if list(legacy_candidates[0].get("match_all") or []) != before:
+                updated_existing_rules += 1
+            existing_triplets.add(triplet)
             continue
 
         account_code = _account_code(company_code, bank_code, account_number, existing_codes)
@@ -305,19 +336,22 @@ def sync_accounts_from_excel(
             f"{account_code} ({company_code}, {bank_code}, ...{account_number[-4:]})"
         )
 
-    if added_accounts and not dry_run:
+    if (added_accounts or updated_existing_rules) and not dry_run:
         _write_json(accounts_json_path, accounts)
-        _write_json(companies_json_path, companies)
+        if added_accounts:
+            _write_json(companies_json_path, companies)
         log.info(
-            "Excel sync: added %d account(s), linked %d company account(s), skipped %d row(s)",
+            "Excel sync: added %d account(s), updated %d legacy rule(s), linked %d company account(s), skipped %d row(s)",
             added_accounts,
+            updated_existing_rules,
             linked_company_accounts,
             skipped_rows,
         )
-    elif added_accounts and dry_run:
+    elif (added_accounts or updated_existing_rules) and dry_run:
         log.info(
-            "Excel sync DRY-RUN: would add %d account(s), link %d company account(s), skipped %d row(s)",
+            "Excel sync DRY-RUN: would add %d account(s), update %d legacy rule(s), link %d company account(s), skipped %d row(s)",
             added_accounts,
+            updated_existing_rules,
             linked_company_accounts,
             skipped_rows,
         )

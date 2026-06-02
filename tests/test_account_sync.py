@@ -151,6 +151,52 @@ def test_sync_accounts_from_excel_idempotent(tmp_path: Path):
     assert len(accounts) == 1
 
 
+def test_sync_accounts_enriches_legacy_rule_without_duplicating(tmp_path: Path):
+    accounts_path = tmp_path / "accounts.json"
+    companies_path = tmp_path / "companies.json"
+    excel_path = tmp_path / "Расчетные счета.xlsx"
+    _write_json(
+        accounts_path,
+        [
+            {
+                "account_code": "sp_impost_sber",
+                "company_code": "sp_impost",
+                "display_name": 'ООО "СП-Импост" СБЕР',
+                "bank": "sber",
+                "parser": "sber_outgoing_balance",
+                "match_all": ['ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ "СП-ИМПОСТ"', "СберБизнес"],
+                "active": True,
+            }
+        ],
+    )
+    _write_json(
+        companies_path,
+        [
+            {
+                "company_code": "sp_impost",
+                "display_name": 'ООО "СП-Импост"',
+                "accounts": ["sp_impost_sber"],
+                "active": True,
+            }
+        ],
+    )
+    _make_excel(excel_path, [('ООО "СП-Импост"', "Сбер", "40702810355710017205")])
+
+    stats = sync_accounts_from_excel(
+        excel_path=excel_path,
+        accounts_json_path=accounts_path,
+        companies_json_path=companies_path,
+    )
+    assert stats.added_accounts == 0
+
+    accounts = json.loads(accounts_path.read_text(encoding="utf-8"))
+    assert len(accounts) == 1
+    assert "40702810355710017205" in "".join(accounts[0]["match_all"])
+
+    companies = json.loads(companies_path.read_text(encoding="utf-8"))
+    assert companies[0]["accounts"] == ["sp_impost_sber"]
+
+
 def test_sync_accounts_from_excel_dry_run_does_not_write_files(tmp_path: Path):
     accounts_path = tmp_path / "accounts.json"
     companies_path = tmp_path / "companies.json"

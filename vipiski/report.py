@@ -96,6 +96,9 @@ def build_telegram_text(
             accs = co.get("accounts") or []
             for ac in accs:
                 rule = by_code.get(ac)
+                # Skip account codes that are absent among active account rules.
+                if rule is None:
+                    continue
                 label = (rule or {}).get("display_name") or ac
                 bal = balances_by_account.get(ac, Decimal(0))
                 lines.append(f"{label} - {_fmt_money(bal)}")
