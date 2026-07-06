@@ -118,6 +118,9 @@ def _extract_account_digits(rule: dict[str, Any]) -> str:
 
 
 def _ensure_match_all_has_account_number(rule: dict[str, Any], account_number: str) -> None:
+    # Tochka PDFs usually expose the account with spaces, not as a contiguous digit string.
+    if str(rule.get("bank") or "") == "tochka":
+        return
     account_number = _digits_only(account_number)
     if not account_number:
         return

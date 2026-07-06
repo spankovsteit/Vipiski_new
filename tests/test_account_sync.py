@@ -197,6 +197,51 @@ def test_sync_accounts_enriches_legacy_rule_without_duplicating(tmp_path: Path):
     assert companies[0]["accounts"] == ["sp_impost_sber"]
 
 
+def test_sync_accounts_does_not_add_account_digits_to_tochka_legacy_rule(tmp_path):
+    accounts_path = tmp_path / "accounts.json"
+    companies_path = tmp_path / "companies.json"
+    excel_path = tmp_path / "Расчетные счета.xlsx"
+    _write_json(
+        accounts_path,
+        [
+            {
+                "account_code": "tsn_oazis_tochka",
+                "company_code": "tsn_oazis",
+                "display_name": 'ТСН "ОАЗИС" TOCHKA',
+                "bank": "tochka",
+                "parser": "tochka_outgoing_balance",
+                "match_all": ['ТОВАРИЩЕСТВО СОБСТВЕННИКОВ НЕДВИЖИМОСТИ "ОАЗИС"'],
+                "active": True,
+            }
+        ],
+    )
+    _write_json(
+        companies_path,
+        [
+            {
+                "company_code": "tsn_oazis",
+                "display_name": 'ТСН "ОАЗИС"',
+                "accounts": ["tsn_oazis_tochka"],
+                "active": True,
+            }
+        ],
+    )
+    _make_excel(
+        excel_path,
+        [('ТСН "ОАЗИС"', "Точка", "40703810220000003335")],
+    )
+
+    sync_accounts_from_excel(
+        excel_path=excel_path,
+        accounts_json_path=accounts_path,
+        companies_json_path=companies_path,
+    )
+    accounts = json.loads(accounts_path.read_text(encoding="utf-8"))
+    assert accounts[0]["match_all"] == [
+        'ТОВАРИЩЕСТВО СОБСТВЕННИКОВ НЕДВИЖИМОСТИ "ОАЗИС"'
+    ]
+
+
 def test_sync_accounts_from_excel_dry_run_does_not_write_files(tmp_path: Path):
     accounts_path = tmp_path / "accounts.json"
     companies_path = tmp_path / "companies.json"

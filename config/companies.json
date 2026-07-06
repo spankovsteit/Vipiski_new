@@ -33,8 +33,7 @@
         "account_balances_label": "СТЕЙТ ООО",
         "accounts": [
             "steit_sber",
-            "steit_ukb",
-            "steit_sber_6419"
+            "steit_ukb"
         ],
         "active": true
     },
@@ -46,8 +45,7 @@
         "account_balances_label": "МЕТРО ООО",
         "accounts": [
             "metro_ukb",
-            "metro_sber",
-            "metro_sber_4697"
+            "metro_sber"
         ],
         "active": true
     },
@@ -59,8 +57,7 @@
         "account_balances_label": "ТСН \"Репинское\"",
         "accounts": [
             "tsn_repinskoe_vtb",
-            "tsn_repinskoe_tochka_3110",
-            "tsn_repinskoe_vtb_0001"
+            "tsn_repinskoe_tochka_3110"
         ],
         "active": true
     },
@@ -83,8 +80,7 @@
         "google_total_cell": "D10",
         "account_balances_label": "ОАЗИС ТСН",
         "accounts": [
-            "tsn_oazis_tochka",
-            "tsn_oazis_tochka_3335"
+            "tsn_oazis_tochka"
         ],
         "active": true
     },
@@ -95,8 +91,7 @@
         "google_total_cell": "D12",
         "account_balances_label": "АНКОН ООО",
         "accounts": [
-            "ankon_raiffeisen",
-            "ankon_raiffeisen_4320"
+            "ankon_raiffeisen"
         ],
         "active": true
     },
@@ -108,7 +103,6 @@
         "account_balances_label": "КУДРОВО-СТРОЙ ООО",
         "accounts": [
             "kudrovo_stroy_sber",
-            "kudrovo_stroy_sber_0651",
             "kudrovo_stroy_sber_5217",
             "kudrovo_stroy_sber_1677"
         ],
@@ -137,9 +131,7 @@
         "accounts": [
             "partner_ukb",
             "partner_vtb",
-            "partner_sber",
-            "partner_vtb_0716",
-            "partner_sber_1806"
+            "partner_sber"
         ],
         "active": true
     },
@@ -152,9 +144,7 @@
         "accounts": [
             "ohtinskaya_alleya_ukb",
             "ohtinskaya_alleya_vtb",
-            "ohtinskaya_alleya_sber",
-            "ohtinskaya_alleya_vtb_0717",
-            "ohtinskaya_alleya_sber_7248"
+            "ohtinskaya_alleya_sber"
         ],
         "active": true
     },
@@ -181,8 +171,6 @@
         "accounts": [
             "raduga_sber",
             "raduga_vtb",
-            "raduga_vtb_1184",
-            "raduga_sber_9331",
             "raduga_sber_5169",
             "raduga_sber_2443",
             "raduga_sber_6481",
@@ -211,8 +199,6 @@
             "reaktiv_bspb",
             "reaktiv_sber",
             "reaktiv_vtb",
-            "reaktiv_vtb_0658",
-            "reaktiv_sber_3589",
             "reaktiv_bspb_7959",
             "reaktiv_bspb_7969"
         ],
@@ -229,8 +215,6 @@
             "romashki_ukb",
             "romashki_sber",
             "romashki_vtb",
-            "romashki_vtb_0920",
-            "romashki_sber_6986",
             "romashki_bspb_1648"
         ],
         "active": true
@@ -244,8 +228,6 @@
         "accounts": [
             "smart_solution_vtb",
             "smart_solution_sber",
-            "smart_solution_vtb_1163",
-            "smart_solution_sber_0615",
             "smart_solution_bspb_0296",
             "smart_solution_bspb_7153",
             "smart_solution_bspb_8117",
@@ -265,9 +247,7 @@
         "accounts": [
             "formula_ukb",
             "formula_vtb",
-            "formula_sber",
-            "formula_sber_9703",
-            "formula_vtb_2066"
+            "formula_sber"
         ],
         "active": true
     },
@@ -280,9 +260,7 @@
         "accounts": [
             "sityinvest_ukb",
             "sityinvest_sber",
-            "sityinvest_vtb",
-            "sityinvest_sber_3309",
-            "sityinvest_vtb_0482"
+            "sityinvest_vtb"
         ],
         "active": true
     },
@@ -295,9 +273,7 @@
         "accounts": [
             "sev_zvezda_ukb",
             "sev_zvezda_sber",
-            "sev_zvezda_vtb",
-            "sev_zvezda_vtb_9865",
-            "sev_zvezda_sber_6991"
+            "sev_zvezda_vtb"
         ],
         "active": true
     },
@@ -309,8 +285,7 @@
         "account_balances_label": "ДУДЕРГОФ ООО",
         "accounts": [
             "dudergof_ukb",
-            "dudergof_sber",
-            "dudergof_sber_6980"
+            "dudergof_sber"
         ],
         "active": true
     },
@@ -333,8 +308,7 @@
         "account_balances_label": "М-ИНВЕСТ ООО",
         "accounts": [
             "m_invest_ukb",
-            "m_invest_sber",
-            "m_invest_sber_8524"
+            "m_invest_sber"
         ],
         "active": true
     },
@@ -346,8 +320,7 @@
         "account_balances_label": "СП-Импост ООО",
         "accounts": [
             "sp_impost_ukb",
-            "sp_impost_sber",
-            "sp_impost_sber_7205"
+            "sp_impost_sber"
         ],
         "active": true
     },
@@ -360,9 +333,7 @@
         "accounts": [
             "praga_ukb",
             "praga_vtb",
-            "praga_sber",
-            "praga_sber_3582",
-            "praga_vtb_1180"
+            "praga_sber"
         ],
         "active": true
     },
@@ -387,9 +358,7 @@
         "accounts": [
             "ser_ukb",
             "ser_sber",
-            "ser_vtb",
-            "ser_sber_3588",
-            "ser_vtb_4318"
+            "ser_vtb"
         ],
         "active": true
     },
@@ -400,8 +369,7 @@
         "google_total_cell": "D33",
         "account_balances_label": "МУРИНО-ГРАД ООО",
         "accounts": [
-            "murino_grad_sber",
-            "murino_grad_sber_0756"
+            "murino_grad_sber"
         ],
         "active": true
     },
@@ -413,8 +381,7 @@
         "account_balances_label": "АКВИТАНИЯ ООО",
         "accounts": [
             "akvitania_ukb",
-            "akvitania_sber",
-            "akvitania_sber_4683"
+            "akvitania_sber"
         ],
         "active": true
     },
@@ -426,8 +393,7 @@
         "account_balances_label": "БЕРГЕН ООО",
         "accounts": [
             "bergen_ukb",
-            "bergen_sber",
-            "bergen_sber_3581"
+            "bergen_sber"
         ],
         "active": true
     },
@@ -439,8 +405,7 @@
         "account_balances_label": "ИММОБИ ООО",
         "accounts": [
             "immobi_ukb",
-            "immobi_sber",
-            "immobi_sber_3043"
+            "immobi_sber"
         ],
         "active": true
     },
@@ -452,8 +417,7 @@
         "account_balances_label": "КУДРОВО-ИНВЕСТ ООО",
         "accounts": [
             "kudrovo_invest_ukb",
-            "kudrovo_invest_sber",
-            "kudrovo_invest_sber_3051"
+            "kudrovo_invest_sber"
         ],
         "active": true
     },
@@ -478,7 +442,6 @@
         "accounts": [
             "riteil_park_ukb",
             "riteil_park_sber",
-            "riteil_park_sber_1276",
             "riteil_park_sber_3047"
         ],
         "active": true
@@ -512,8 +475,7 @@
         "google_total_cell": "D38",
         "account_balances_label": "ОН ИНДЕКС ООО",
         "accounts": [
-            "on_index_bspb",
-            "on_index_bspb_0275"
+            "on_index_bspb"
         ],
         "active": true
     }

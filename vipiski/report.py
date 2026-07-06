@@ -94,6 +94,7 @@ def build_telegram_text(
         first_section = False
         for co in cos:
             accs = co.get("accounts") or []
+            label_totals: dict[str, Decimal] = {}
             for ac in accs:
                 rule = by_code.get(ac)
                 # Skip account codes that are absent among active account rules.
@@ -101,7 +102,9 @@ def build_telegram_text(
                     continue
                 label = (rule or {}).get("display_name") or ac
                 bal = balances_by_account.get(ac, Decimal(0))
-                lines.append(f"{label} - {_fmt_money(bal)}")
+                label_totals[label] = label_totals.get(label, Decimal(0)) + bal
+            for label, total in label_totals.items():
+                lines.append(f"{label} - {_fmt_money(total)}")
             dkey = (
                 co.get("deposits_key")
                 or co.get("account_balances_label")
