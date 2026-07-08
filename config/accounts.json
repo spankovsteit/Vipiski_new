@@ -871,7 +871,7 @@
         "bank": "sber",
         "parser": "sber_outgoing_balance",
         "match_all": [
-            "40702810255000021276",
+            "40702810355710013047",
             "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"РИТЕЙЛ ПАРК\"",
             "СберБизнес"
         ],
@@ -1043,7 +1043,7 @@
             "СберБизнес"
         ],
         "business_date": "09.06.2026",
-        "active": true
+        "active": false
     },
     {
         "account_code": "kudrovo_stroy_sber_1677",
@@ -1056,7 +1056,7 @@
             "СберБизнес"
         ],
         "business_date": "09.06.2026",
-        "active": true
+        "active": false
     },
     {
         "account_code": "h1_sber_9666",
@@ -1069,7 +1069,7 @@
             "СберБизнес"
         ],
         "business_date": "09.06.2026",
-        "active": true
+        "active": false
     },
     {
         "account_code": "h1_sovcom_2576",
@@ -1081,7 +1081,7 @@
             "40702810812010632576"
         ],
         "business_date": "09.06.2026",
-        "active": true
+        "active": false
     },
     {
         "account_code": "raduga_sber_5169",
@@ -1094,7 +1094,7 @@
             "СберБизнес"
         ],
         "business_date": "09.06.2026",
-        "active": true
+        "active": false
     },
     {
         "account_code": "raduga_sber_2443",
@@ -1107,7 +1107,7 @@
             "СберБизнес"
         ],
         "business_date": "09.06.2026",
-        "active": true
+        "active": false
     },
     {
         "account_code": "raduga_sber_6481",
@@ -1120,7 +1120,7 @@
             "СберБизнес"
         ],
         "business_date": "09.06.2026",
-        "active": true
+        "active": false
     },
     {
         "account_code": "raduga_sber_6453",
@@ -1133,7 +1133,7 @@
             "СберБизнес"
         ],
         "business_date": "09.06.2026",
-        "active": true
+        "active": false
     },
     {
         "account_code": "raduga_sber_9395",
@@ -1146,7 +1146,7 @@
             "СберБизнес"
         ],
         "business_date": "09.06.2026",
-        "active": true
+        "active": false
     },
     {
         "account_code": "raduga_sber_0665",
@@ -1159,7 +1159,7 @@
             "СберБизнес"
         ],
         "business_date": "09.06.2026",
-        "active": true
+        "active": false
     },
     {
         "account_code": "raduga_sber_9233",
@@ -1172,7 +1172,7 @@
             "СберБизнес"
         ],
         "business_date": "09.06.2026",
-        "active": true
+        "active": false
     },
     {
         "account_code": "raduga_sber_0393",
@@ -1185,7 +1185,7 @@
             "СберБизнес"
         ],
         "business_date": "09.06.2026",
-        "active": true
+        "active": false
     },
     {
         "account_code": "raduga_sber_2125",
@@ -1198,7 +1198,7 @@
             "СберБизнес"
         ],
         "business_date": "09.06.2026",
-        "active": true
+        "active": false
     },
     {
         "account_code": "raduga_sber_5517",
@@ -1211,7 +1211,7 @@
             "СберБизнес"
         ],
         "business_date": "09.06.2026",
-        "active": true
+        "active": false
     },
     {
         "account_code": "raduga_sber_2989",
@@ -1224,7 +1224,7 @@
             "СберБизнес"
         ],
         "business_date": "09.06.2026",
-        "active": true
+        "active": false
     },
     {
         "account_code": "raduga_sber_2473",
@@ -1237,7 +1237,7 @@
             "СберБизнес"
         ],
         "business_date": "09.06.2026",
-        "active": true
+        "active": false
     },
     {
         "account_code": "raduga_sber_2759",
@@ -1250,7 +1250,7 @@
             "СберБизнес"
         ],
         "business_date": "09.06.2026",
-        "active": true
+        "active": false
     },
     {
         "account_code": "raduga_sber_5361",
@@ -1263,7 +1263,7 @@
             "СберБизнес"
         ],
         "business_date": "09.06.2026",
-        "active": true
+        "active": false
     },
     {
         "account_code": "raduga_sber_7611",
@@ -1276,7 +1276,7 @@
             "СберБизнес"
         ],
         "business_date": "09.06.2026",
-        "active": true
+        "active": false
     },
     {
         "account_code": "reaktiv_bspb_7959",
@@ -1288,7 +1288,7 @@
             "42102810190270017959"
         ],
         "business_date": "09.06.2026",
-        "active": true
+        "active": false
     },
     {
         "account_code": "reaktiv_bspb_7969",
@@ -1300,20 +1300,7 @@
             "42102810290270017969"
         ],
         "business_date": "09.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "riteil_park_sber_3047",
-        "company_code": "riteil_park",
-        "display_name": "ООО \"Ритейл Парк\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810355710013047",
-            "СберБизнес"
-        ],
-        "business_date": "09.06.2026",
-        "active": true
+        "active": false
     },
     {
         "account_code": "romashki_bspb_1648",
@@ -1325,7 +1312,7 @@
             "40702810990270001648"
         ],
         "business_date": "09.06.2026",
-        "active": true
+        "active": false
     },
     {
         "account_code": "tsn_repinskoe2_tochka_3110",
@@ -1337,6 +1324,6 @@
             "40703810720000003110"
         ],
         "business_date": "09.06.2026",
-        "active": true
+        "active": false
     }
 ]

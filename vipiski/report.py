@@ -26,6 +26,35 @@ from decimal import Decimal
 from typing import Any
 
 
+def _canonical_report_label(
+    account_code: str,
+    rule: dict[str, Any],
+    by_code: dict[str, dict[str, Any]],
+    company_account_codes: set[str],
+) -> str:
+    """
+    One report line per company+bank when a canonical base rule exists.
+
+    Excel sync may add ``{company}_{bank}_{digits}`` alongside legacy
+    ``{company}_{bank}``; suffix accounts merge into the base display name.
+    """
+    company_code = str(rule.get("company_code") or "")
+    bank = str(rule.get("bank") or "")
+    base_code = f"{company_code}_{bank}" if company_code and bank else ""
+    if (
+        base_code
+        and base_code in company_account_codes
+        and account_code != base_code
+        and account_code.startswith(base_code + "_")
+    ):
+        suffix = account_code[len(base_code) + 1 :]
+        if suffix.isdigit():
+            base_rule = by_code.get(base_code)
+            if base_rule:
+                return str(base_rule.get("display_name") or base_code)
+    return str(rule.get("display_name") or account_code)
+
+
 def _fmt_money(d: Decimal) -> str:
     """Format for chat: thousands with space, decimal comma (RU-style)."""
     q = d.quantize(Decimal("0.01"))
@@ -94,13 +123,14 @@ def build_telegram_text(
         first_section = False
         for co in cos:
             accs = co.get("accounts") or []
+            company_codes = set(accs)
             label_totals: dict[str, Decimal] = {}
             for ac in accs:
                 rule = by_code.get(ac)
                 # Skip account codes that are absent among active account rules.
                 if rule is None:
                     continue
-                label = (rule or {}).get("display_name") or ac
+                label = _canonical_report_label(ac, rule, by_code, company_codes)
                 bal = balances_by_account.get(ac, Decimal(0))
                 label_totals[label] = label_totals.get(label, Decimal(0)) + bal
             for label, total in label_totals.items():

@@ -44,6 +44,10 @@ class Settings:
     log_file: Path
     telegram_token: str
     telegram_chat_id: str
+    bitrix24_webhook_url: str | None
+    bitrix24_dialog_id: str | None
+    skip_bitrix24: bool
+    bitrix24_soft_fail: bool
     google_credentials_path: Path
     google_spreadsheet_name: str
     google_worksheet_balances: str
@@ -73,6 +77,18 @@ def load_settings() -> Settings:
         log_file=_path("VIPISKI_LOG_FILE", str(base / "vipiski_log.txt")),
         telegram_token=os.environ["TELEGRAM_BOT_TOKEN"],
         telegram_chat_id=os.environ["TELEGRAM_CHAT_ID"],
+        bitrix24_webhook_url=(
+            os.environ.get("BITRIX24_WEBHOOK_URL", "").strip() or None
+        ),
+        bitrix24_dialog_id=(
+            os.environ.get("BITRIX24_DIALOG_ID", "").strip() or None
+        ),
+        skip_bitrix24=os.environ.get("VIPISKI_SKIP_BITRIX24", "false").lower()
+        in ("1", "true", "yes"),
+        bitrix24_soft_fail=os.environ.get(
+            "VIPISKI_BITRIX24_SOFT_FAIL", "false"
+        ).lower()
+        in ("1", "true", "yes"),
         google_credentials_path=_path(
             "GOOGLE_CREDENTIALS_JSON",
             str(ROOT / "credentials" / "service_account.json"),

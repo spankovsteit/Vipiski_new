@@ -297,20 +297,26 @@ def sync_accounts_from_excel(
         triplet = (company_code, bank_code, account_number)
         if triplet in existing_triplets:
             continue
-        # Legacy manual rules often have (company, bank) but no account digits in match_all.
-        # In this case enrich the existing rule instead of creating a duplicate account_code.
-        legacy_candidates = [
+        existing_same_bank = [
             a
             for a in accounts
             if str(a.get("company_code") or "") == company_code
             and str(a.get("bank") or "") == bank_code
-            and not _extract_account_digits(a)
+        ]
+        # Legacy manual rules often have (company, bank) but no account digits in match_all.
+        # In this case enrich the existing rule instead of creating a duplicate account_code.
+        legacy_candidates = [
+            a for a in existing_same_bank if not _extract_account_digits(a)
         ]
         if legacy_candidates:
             before = list(legacy_candidates[0].get("match_all") or [])
             _ensure_match_all_has_account_number(legacy_candidates[0], account_number)
             if list(legacy_candidates[0].get("match_all") or []) != before:
                 updated_existing_rules += 1
+            existing_triplets.add(triplet)
+            continue
+        if existing_same_bank:
+            skipped_rows += 1
             existing_triplets.add(triplet)
             continue
 

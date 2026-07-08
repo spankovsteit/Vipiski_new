@@ -68,8 +68,7 @@
         "google_total_cell": "D9",
         "account_balances_label": "ТСН РЕПИНСКОЕ 2",
         "accounts": [
-            "tsn_repinskoe2_tochka",
-            "tsn_repinskoe2_tochka_3110"
+            "tsn_repinskoe2_tochka"
         ],
         "active": true
     },
@@ -102,9 +101,7 @@
         "google_total_cell": "D13",
         "account_balances_label": "КУДРОВО-СТРОЙ ООО",
         "accounts": [
-            "kudrovo_stroy_sber",
-            "kudrovo_stroy_sber_5217",
-            "kudrovo_stroy_sber_1677"
+            "kudrovo_stroy_sber"
         ],
         "active": true
     },
@@ -156,9 +153,7 @@
         "account_balances_label": "Н1 ООО",
         "accounts": [
             "h1_sovcom",
-            "h1_sber",
-            "h1_sber_9666",
-            "h1_sovcom_2576"
+            "h1_sber"
         ],
         "active": true
     },
@@ -170,22 +165,7 @@
         "account_balances_label": "РАДУГА ООО",
         "accounts": [
             "raduga_sber",
-            "raduga_vtb",
-            "raduga_sber_5169",
-            "raduga_sber_2443",
-            "raduga_sber_6481",
-            "raduga_sber_6453",
-            "raduga_sber_9395",
-            "raduga_sber_0665",
-            "raduga_sber_9233",
-            "raduga_sber_0393",
-            "raduga_sber_2125",
-            "raduga_sber_5517",
-            "raduga_sber_2989",
-            "raduga_sber_2473",
-            "raduga_sber_2759",
-            "raduga_sber_5361",
-            "raduga_sber_7611"
+            "raduga_vtb"
         ],
         "active": true
     },
@@ -198,9 +178,7 @@
         "accounts": [
             "reaktiv_bspb",
             "reaktiv_sber",
-            "reaktiv_vtb",
-            "reaktiv_bspb_7959",
-            "reaktiv_bspb_7969"
+            "reaktiv_vtb"
         ],
         "active": true
     },
@@ -214,8 +192,7 @@
             "romashki_bspb",
             "romashki_ukb",
             "romashki_sber",
-            "romashki_vtb",
-            "romashki_bspb_1648"
+            "romashki_vtb"
         ],
         "active": true
     },
@@ -441,8 +418,7 @@
         "account_balances_label": "РИТЕЙЛ ПАРК ООО",
         "accounts": [
             "riteil_park_ukb",
-            "riteil_park_sber",
-            "riteil_park_sber_3047"
+            "riteil_park_sber"
         ],
         "active": true
     },
