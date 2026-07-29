@@ -74,6 +74,7 @@
         "bank": "sber",
         "parser": "sber_outgoing_balance",
         "match_all": [
+            "40702810155040016419",
             "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"СТЕЙТ\"",
             "СберБизнес"
         ],
@@ -108,6 +109,7 @@
         "bank": "sber",
         "parser": "sber_outgoing_balance",
         "match_all": [
+            "40702810555710014697",
             "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"МЕТРО\"",
             "СберБизнес"
         ],
@@ -120,6 +122,7 @@
         "bank": "vtb",
         "parser": "vtb_outgoing_balance",
         "match_all": [
+            "40703810828189000001",
             "Владелец счета: ТОВАРИЩЕСТВО СОБСТВЕННИКОВ НЕДВИЖИМОСТИ \"РЕПИНСКОЕ\""
         ],
         "active": true
@@ -153,6 +156,7 @@
         "bank": "raiffeisen",
         "parser": "raiffeisen_outgoing_balance",
         "match_all": [
+            "40702810303000414320",
             "АНКОН"
         ],
         "active": true
@@ -164,6 +168,7 @@
         "bank": "sber",
         "parser": "sber_outgoing_balance",
         "match_all": [
+            "40702810355070000651",
             "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"КУДРОВО-СТРОЙ\"",
             "СберБизнес"
         ],
@@ -232,6 +237,7 @@
         "bank": "vtb",
         "parser": "vtb_outgoing_balance",
         "match_all": [
+            "40702810126300000716",
             "Владелец счета: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ПАРТНЕР"
         ],
         "active": true
@@ -243,6 +249,7 @@
         "bank": "sber",
         "parser": "sber_outgoing_balance",
         "match_all": [
+            "40702810255710011806",
             "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ПАРТНЕР\"",
             "СберБизнес"
         ],
@@ -266,6 +273,7 @@
         "bank": "vtb",
         "parser": "vtb_outgoing_balance",
         "match_all": [
+            "40702810426300000717",
             "Владелец счета: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ОХТИНСКАЯ АЛЛЕЯ\""
         ],
         "active": true
@@ -277,6 +285,7 @@
         "bank": "sber",
         "parser": "sber_outgoing_balance",
         "match_all": [
+            "40702810555710007248",
             "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ОХТИНСКАЯ АЛЛЕЯ\"",
             "СберБизнес"
         ],
@@ -312,6 +321,7 @@
         "bank": "sber",
         "parser": "sber_outgoing_balance_with_day_suffix",
         "match_all": [
+            "40702810755040099331",
             "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"РАДУГА\"",
             "СберБизнес"
         ],
@@ -324,6 +334,7 @@
         "bank": "vtb",
         "parser": "vtb_outgoing_balance",
         "match_all": [
+            "40702810126300001184",
             "Владелец счета: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"РАДУГА\""
         ],
         "active": true
@@ -346,6 +357,7 @@
         "bank": "sber",
         "parser": "sber_outgoing_balance",
         "match_all": [
+            "40702810555000133589",
             "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"РЕАКТИВ\"",
             "СберБизнес"
         ],
@@ -358,6 +370,7 @@
         "bank": "vtb",
         "parser": "vtb_outgoing_balance",
         "match_all": [
+            "40702810400810170658",
             "Владелец счета: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"РЕАКТИВ\""
         ],
         "active": true
@@ -391,6 +404,7 @@
         "bank": "sber",
         "parser": "sber_outgoing_balance",
         "match_all": [
+            "40702810355710006986",
             "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"РОМАШКИ\"",
             "СберБизнес"
         ],
@@ -403,6 +417,7 @@
         "bank": "vtb",
         "parser": "vtb_outgoing_balance",
         "match_all": [
+            "40702810626300001163",
             "Владелец счета: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"СМАРТ СОЛЮШН\""
         ],
         "active": true
@@ -414,6 +429,7 @@
         "bank": "vtb",
         "parser": "vtb_outgoing_balance",
         "match_all": [
+            "40702810300810160920",
             "Владелец счета: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"РОМАШКИ\""
         ],
         "active": true
@@ -425,6 +441,7 @@
         "bank": "sber",
         "parser": "sber_outgoing_balance_with_day_suffix",
         "match_all": [
+            "40702810655000130615",
             "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"СМАРТ СОЛЮШН\"",
             "СберБизнес"
         ],
@@ -448,6 +465,7 @@
         "bank": "vtb",
         "parser": "vtb_outgoing_balance",
         "match_all": [
+            "40702810926300002066",
             "Владелец счета: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ФОРМУЛА"
         ],
         "active": true
@@ -459,6 +477,7 @@
         "bank": "sber",
         "parser": "sber_outgoing_balance",
         "match_all": [
+            "40702810755710009703",
             "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ФОРМУЛА\"",
             "СберБизнес"
         ],
@@ -482,6 +501,7 @@
         "bank": "sber",
         "parser": "sber_outgoing_balance",
         "match_all": [
+            "40702810255710013309",
             "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"СИТИИНВЕСТ\"",
             "СберБизнес"
         ],
@@ -494,6 +514,7 @@
         "bank": "vtb",
         "parser": "vtb_outgoing_balance",
         "match_all": [
+            "40702810300810080482",
             "Владелец счета: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"СИТИИНВЕСТ\""
         ],
         "active": true
@@ -516,6 +537,7 @@
         "bank": "sber",
         "parser": "sber_outgoing_balance",
         "match_all": [
+            "40702810955710006991",
             "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"СЕВЕРНАЯ ЗВЕЗДА\"",
             "СберБизнес"
         ],
@@ -528,6 +550,7 @@
         "bank": "vtb",
         "parser": "vtb_outgoing_balance",
         "match_all": [
+            "40702810900810159865",
             "Владелец счета: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"СЕВЕРНАЯ ЗВЕЗДА\""
         ],
         "active": true
@@ -550,6 +573,7 @@
         "bank": "sber",
         "parser": "sber_outgoing_balance",
         "match_all": [
+            "40702810555710006980",
             "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ДУДЕРГОФ\"",
             "СберБизнес"
         ],
@@ -584,6 +608,7 @@
         "bank": "sber",
         "parser": "sber_outgoing_balance",
         "match_all": [
+            "40702810255710018524",
             "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"М-ИНВЕСТ\"",
             "СберБизнес"
         ],
@@ -607,6 +632,7 @@
         "bank": "sber",
         "parser": "sber_outgoing_balance",
         "match_all": [
+            "40702810355710017205",
             "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"СП-ИМПОСТ\"",
             "СберБизнес"
         ],
@@ -630,6 +656,7 @@
         "bank": "vtb",
         "parser": "vtb_outgoing_balance",
         "match_all": [
+            "40702810926300001180",
             "Владелец счета: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ПРАГА\""
         ],
         "active": true
@@ -641,6 +668,7 @@
         "bank": "sber",
         "parser": "sber_outgoing_balance",
         "match_all": [
+            "40702810755710013582",
             "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ПРАГА\"",
             "СберБизнес"
         ],
@@ -675,6 +703,7 @@
         "bank": "sber",
         "parser": "sber_outgoing_balance",
         "match_all": [
+            "40702810555710013588",
             "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"СТРОЙЭКСПЕРТРИТЕЙЛ\"",
             "СберБизнес"
         ],
@@ -687,6 +716,7 @@
         "bank": "vtb",
         "parser": "vtb_outgoing_balance",
         "match_all": [
+            "40702810900810114318",
             "Владелец счета: ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"СТРОЙЭКСПЕРТРИТЕЙЛ\""
         ],
         "active": true
@@ -698,6 +728,7 @@
         "bank": "sber",
         "parser": "sber_outgoing_balance_with_day_suffix",
         "match_all": [
+            "40702810755070000756",
             "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"МУРИНО-ГРАД\"",
             "СберБизнес"
         ],
@@ -721,6 +752,7 @@
         "bank": "sber",
         "parser": "sber_outgoing_balance",
         "match_all": [
+            "40702810255710014683",
             "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"АКВИТАНИЯ\"",
             "СберБизнес"
         ],
@@ -744,6 +776,7 @@
         "bank": "sber",
         "parser": "sber_outgoing_balance",
         "match_all": [
+            "40702810455710013581",
             "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"БЕРГЕН\"",
             "СберБизнес"
         ],
@@ -767,6 +800,7 @@
         "bank": "sber",
         "parser": "sber_outgoing_balance",
         "match_all": [
+            "40702810155710013043",
             "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"ИММОБИ\"",
             "СберБизнес"
         ],
@@ -790,6 +824,7 @@
         "bank": "sber",
         "parser": "sber_outgoing_balance",
         "match_all": [
+            "40702810655710013051",
             "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"КУДРОВО-ИНВЕСТ\"",
             "СберБизнес"
         ],
@@ -836,6 +871,7 @@
         "bank": "sber",
         "parser": "sber_outgoing_balance",
         "match_all": [
+            "40702810355710013047",
             "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ \"РИТЕЙЛ ПАРК\"",
             "СберБизнес"
         ],
@@ -882,691 +918,9 @@
         "bank": "bspb",
         "parser": "bspb_outgoing_balance",
         "match_all": [
+            "40702810490270000275",
             "Общество с ограниченной ответственностью \"ОН ИНДЕКС\""
         ],
-        "active": true
-    },
-    {
-        "account_code": "akvitania_sber_4683",
-        "company_code": "akvitania",
-        "display_name": "ООО \"Аквитания\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810255710014683",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "ankon_raiffeisen_4320",
-        "company_code": "ankon",
-        "display_name": "ООО \"АНКОН\" RAIFFEISEN",
-        "bank": "raiffeisen",
-        "parser": "raiffeisen_outgoing_balance",
-        "match_all": [
-            "40702810303000414320"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "bergen_sber_3581",
-        "company_code": "bergen",
-        "display_name": "ООО \"Берген\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810455710013581",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "dudergof_sber_6980",
-        "company_code": "dudergof",
-        "display_name": "ООО \"Дудергоф\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810555710006980",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "immobi_sber_3043",
-        "company_code": "immobi",
-        "display_name": "ООО \"Иммоби\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810155710013043",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "kudrovo_invest_sber_3051",
-        "company_code": "kudrovo_invest",
-        "display_name": "ООО \"Кудрово-Инвест\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810655710013051",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "kudrovo_stroy_sber_0651",
-        "company_code": "kudrovo_stroy",
-        "display_name": "ООО \"КУДРОВО-СТРОЙ\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810355070000651",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "kudrovo_stroy_sber_5217",
-        "company_code": "kudrovo_stroy",
-        "display_name": "ООО \"КУДРОВО-СТРОЙ\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "42102810155000555217",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "kudrovo_stroy_sber_1677",
-        "company_code": "kudrovo_stroy",
-        "display_name": "ООО \"КУДРОВО-СТРОЙ\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "42102810255000561677",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "m_invest_sber_8524",
-        "company_code": "m_invest",
-        "display_name": "ООО \"М-Инвест\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810255710018524",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "metro_sber_4697",
-        "company_code": "metro",
-        "display_name": "ООО \"МЕТРО\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810555710014697",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "murino_grad_sber_0756",
-        "company_code": "murino_grad",
-        "display_name": "ООО \"Мурино-Град\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810755070000756",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "h1_sber_9666",
-        "company_code": "h1",
-        "display_name": "ООО \"Н1\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810355710009666",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "h1_sovcom_2576",
-        "company_code": "h1",
-        "display_name": "ООО \"Н1\" SOVCOM",
-        "bank": "sovcom",
-        "parser": "sovcom_outgoing_balance",
-        "match_all": [
-            "40702810812010632576"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "on_index_bspb_0275",
-        "company_code": "on_index",
-        "display_name": "ООО \"ОН ИНДЕКС\" BSPB",
-        "bank": "bspb",
-        "parser": "bspb_spisanie_balance",
-        "match_all": [
-            "40702810490270000275"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "ohtinskaya_alleya_vtb_0717",
-        "company_code": "ohtinskaya_alleya",
-        "display_name": "ООО \"Охтинская аллея\" VTB",
-        "bank": "vtb",
-        "parser": "vtb_outgoing_balance",
-        "match_all": [
-            "40702810426300000717",
-            "Владелец счета:"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "ohtinskaya_alleya_sber_7248",
-        "company_code": "ohtinskaya_alleya",
-        "display_name": "ООО \"Охтинская аллея\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810555710007248",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "partner_vtb_0716",
-        "company_code": "partner",
-        "display_name": "ООО \"Партнер\" VTB",
-        "bank": "vtb",
-        "parser": "vtb_outgoing_balance",
-        "match_all": [
-            "40702810126300000716",
-            "Владелец счета:"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "partner_sber_1806",
-        "company_code": "partner",
-        "display_name": "ООО \"Партнер\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810255710011806",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "praga_sber_3582",
-        "company_code": "praga",
-        "display_name": "ООО \"Прага\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810755710013582",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "praga_vtb_1180",
-        "company_code": "praga",
-        "display_name": "ООО \"Прага\" VTB",
-        "bank": "vtb",
-        "parser": "vtb_outgoing_balance",
-        "match_all": [
-            "40702810926300001180",
-            "Владелец счета:"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "raduga_vtb_1184",
-        "company_code": "raduga",
-        "display_name": "ООО \"Радуга\" VTB",
-        "bank": "vtb",
-        "parser": "vtb_outgoing_balance",
-        "match_all": [
-            "40702810126300001184",
-            "Владелец счета:"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "raduga_sber_9331",
-        "company_code": "raduga",
-        "display_name": "ООО \"Радуга\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810755040099331",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "raduga_sber_5169",
-        "company_code": "raduga",
-        "display_name": "ООО \"Радуга\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "42102810055000525169",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "raduga_sber_2443",
-        "company_code": "raduga",
-        "display_name": "ООО \"Радуга\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "42102810055000542443",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "raduga_sber_6481",
-        "company_code": "raduga",
-        "display_name": "ООО \"Радуга\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "42102810055000546481",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "raduga_sber_6453",
-        "company_code": "raduga",
-        "display_name": "ООО \"Радуга\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "42102810155000526453",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "raduga_sber_9395",
-        "company_code": "raduga",
-        "display_name": "ООО \"Радуга\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "42102810255000539395",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "raduga_sber_0665",
-        "company_code": "raduga",
-        "display_name": "ООО \"Радуга\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "42102810255000560665",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "raduga_sber_9233",
-        "company_code": "raduga",
-        "display_name": "ООО \"Радуга\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "42102810355000559233",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "raduga_sber_0393",
-        "company_code": "raduga",
-        "display_name": "ООО \"Радуга\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "42102810455000580393",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "raduga_sber_2125",
-        "company_code": "raduga",
-        "display_name": "ООО \"Радуга\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "42102810555000522125",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "raduga_sber_5517",
-        "company_code": "raduga",
-        "display_name": "ООО \"Радуга\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "42102810555000525517",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "raduga_sber_2989",
-        "company_code": "raduga",
-        "display_name": "ООО \"Радуга\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "42102810755000542989",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "raduga_sber_2473",
-        "company_code": "raduga",
-        "display_name": "ООО \"Радуга\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "42102810755000582473",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "raduga_sber_2759",
-        "company_code": "raduga",
-        "display_name": "ООО \"Радуга\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "42102810855000562759",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "raduga_sber_5361",
-        "company_code": "raduga",
-        "display_name": "ООО \"Радуга\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "42102810855000565361",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "raduga_sber_7611",
-        "company_code": "raduga",
-        "display_name": "ООО \"Радуга\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "42102810855000587611",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "reaktiv_vtb_0658",
-        "company_code": "reaktiv",
-        "display_name": "ООО \"Реактив\" VTB",
-        "bank": "vtb",
-        "parser": "vtb_outgoing_balance",
-        "match_all": [
-            "40702810400810170658",
-            "Владелец счета:"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "reaktiv_sber_3589",
-        "company_code": "reaktiv",
-        "display_name": "ООО \"Реактив\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810555000133589",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "reaktiv_bspb_7959",
-        "company_code": "reaktiv",
-        "display_name": "ООО \"Реактив\" BSPB",
-        "bank": "bspb",
-        "parser": "bspb_spisanie_balance",
-        "match_all": [
-            "42102810190270017959"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "reaktiv_bspb_7969",
-        "company_code": "reaktiv",
-        "display_name": "ООО \"Реактив\" BSPB",
-        "bank": "bspb",
-        "parser": "bspb_spisanie_balance",
-        "match_all": [
-            "42102810290270017969"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "riteil_park_sber_1276",
-        "company_code": "riteil_park",
-        "display_name": "ООО \"Ритейл Парк\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810255000021276",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "riteil_park_sber_3047",
-        "company_code": "riteil_park",
-        "display_name": "ООО \"Ритейл Парк\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810355710013047",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "romashki_vtb_0920",
-        "company_code": "romashki",
-        "display_name": "ООО \"Ромашки\" VTB",
-        "bank": "vtb",
-        "parser": "vtb_outgoing_balance",
-        "match_all": [
-            "40702810300810160920",
-            "Владелец счета:"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "romashki_sber_6986",
-        "company_code": "romashki",
-        "display_name": "ООО \"Ромашки\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810355710006986",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "romashki_bspb_1648",
-        "company_code": "romashki",
-        "display_name": "ООО \"Ромашки\" BSPB",
-        "bank": "bspb",
-        "parser": "bspb_spisanie_balance",
-        "match_all": [
-            "40702810990270001648"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "sev_zvezda_vtb_9865",
-        "company_code": "sev_zvezda",
-        "display_name": "ООО \"Северная звезда\" VTB",
-        "bank": "vtb",
-        "parser": "vtb_outgoing_balance",
-        "match_all": [
-            "40702810900810159865",
-            "Владелец счета:"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "sev_zvezda_sber_6991",
-        "company_code": "sev_zvezda",
-        "display_name": "ООО \"Северная звезда\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810955710006991",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "sityinvest_sber_3309",
-        "company_code": "sityinvest",
-        "display_name": "ООО \"СитиИнвест\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810255710013309",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "sityinvest_vtb_0482",
-        "company_code": "sityinvest",
-        "display_name": "ООО \"СитиИнвест\" VTB",
-        "bank": "vtb",
-        "parser": "vtb_outgoing_balance",
-        "match_all": [
-            "40702810300810080482",
-            "Владелец счета:"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "smart_solution_vtb_1163",
-        "company_code": "smart_solution",
-        "display_name": "ООО \"Смарт Солюшн\" VTB",
-        "bank": "vtb",
-        "parser": "vtb_outgoing_balance",
-        "match_all": [
-            "40702810626300001163",
-            "Владелец счета:"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "smart_solution_sber_0615",
-        "company_code": "smart_solution",
-        "display_name": "ООО \"Смарт Солюшн\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810655000130615",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
         "active": true
     },
     {
@@ -1654,84 +1008,6 @@
         "active": true
     },
     {
-        "account_code": "sp_impost_sber_7205",
-        "company_code": "sp_impost",
-        "display_name": "ООО \"СП-Импост\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810355710017205",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "steit_sber_6419",
-        "company_code": "steit",
-        "display_name": "ООО \"СТЕЙТ\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810155040016419",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "ser_sber_3588",
-        "company_code": "ser",
-        "display_name": "ООО \"СЭР\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810555710013588",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "ser_vtb_4318",
-        "company_code": "ser",
-        "display_name": "ООО \"СЭР\" VTB",
-        "bank": "vtb",
-        "parser": "vtb_outgoing_balance",
-        "match_all": [
-            "40702810900810114318",
-            "Владелец счета:"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "formula_sber_9703",
-        "company_code": "formula",
-        "display_name": "ООО \"Формула\" SBER",
-        "bank": "sber",
-        "parser": "sber_outgoing_balance",
-        "match_all": [
-            "40702810755710009703",
-            "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "formula_vtb_2066",
-        "company_code": "formula",
-        "display_name": "ООО \"Формула\" VTB",
-        "bank": "vtb",
-        "parser": "vtb_outgoing_balance",
-        "match_all": [
-            "40702810926300002066",
-            "Владелец счета:"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
         "account_code": "frank_sber_7401",
         "company_code": "frank",
         "display_name": "ООО \"Франк\" SBER",
@@ -1740,30 +1016,6 @@
         "match_all": [
             "40702810955040017401",
             "СберБизнес"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "tsn_oazis_tochka_3335",
-        "company_code": "tsn_oazis",
-        "display_name": "ТСН \"ОАЗИС\" TOCHKA",
-        "bank": "tochka",
-        "parser": "tochka_outgoing_balance",
-        "match_all": [
-            "40703810220000003335"
-        ],
-        "business_date": "01.06.2026",
-        "active": true
-    },
-    {
-        "account_code": "tsn_repinskoe2_tochka_3110",
-        "company_code": "tsn_repinskoe2",
-        "display_name": "ТСН \"РЕПИНСКОЕ 2\" TOCHKA",
-        "bank": "tochka",
-        "parser": "tochka_outgoing_balance",
-        "match_all": [
-            "40703810720000003110"
         ],
         "business_date": "01.06.2026",
         "active": true
@@ -1781,16 +1033,297 @@
         "active": true
     },
     {
-        "account_code": "tsn_repinskoe_vtb_0001",
-        "company_code": "tsn_repinskoe",
-        "display_name": "ТСН \"РЕПИНСКОЕ\" VTB",
-        "bank": "vtb",
-        "parser": "vtb_outgoing_balance",
+        "account_code": "kudrovo_stroy_sber_5217",
+        "company_code": "kudrovo_stroy",
+        "display_name": "ООО \"КУДРОВО-СТРОЙ\" SBER",
+        "bank": "sber",
+        "parser": "sber_outgoing_balance",
         "match_all": [
-            "40703810828189000001",
-            "Владелец счета:"
+            "42102810155000555217",
+            "СберБизнес"
         ],
-        "business_date": "01.06.2026",
-        "active": true
+        "business_date": "09.06.2026",
+        "active": false
+    },
+    {
+        "account_code": "kudrovo_stroy_sber_1677",
+        "company_code": "kudrovo_stroy",
+        "display_name": "ООО \"КУДРОВО-СТРОЙ\" SBER",
+        "bank": "sber",
+        "parser": "sber_outgoing_balance",
+        "match_all": [
+            "42102810255000561677",
+            "СберБизнес"
+        ],
+        "business_date": "09.06.2026",
+        "active": false
+    },
+    {
+        "account_code": "h1_sber_9666",
+        "company_code": "h1",
+        "display_name": "ООО \"Н1\" SBER",
+        "bank": "sber",
+        "parser": "sber_outgoing_balance",
+        "match_all": [
+            "40702810355710009666",
+            "СберБизнес"
+        ],
+        "business_date": "09.06.2026",
+        "active": false
+    },
+    {
+        "account_code": "h1_sovcom_2576",
+        "company_code": "h1",
+        "display_name": "ООО \"Н1\" SOVCOM",
+        "bank": "sovcom",
+        "parser": "sovcom_outgoing_balance",
+        "match_all": [
+            "40702810812010632576"
+        ],
+        "business_date": "09.06.2026",
+        "active": false
+    },
+    {
+        "account_code": "raduga_sber_5169",
+        "company_code": "raduga",
+        "display_name": "ООО \"Радуга\" SBER",
+        "bank": "sber",
+        "parser": "sber_outgoing_balance",
+        "match_all": [
+            "42102810055000525169",
+            "СберБизнес"
+        ],
+        "business_date": "09.06.2026",
+        "active": false
+    },
+    {
+        "account_code": "raduga_sber_2443",
+        "company_code": "raduga",
+        "display_name": "ООО \"Радуга\" SBER",
+        "bank": "sber",
+        "parser": "sber_outgoing_balance",
+        "match_all": [
+            "42102810055000542443",
+            "СберБизнес"
+        ],
+        "business_date": "09.06.2026",
+        "active": false
+    },
+    {
+        "account_code": "raduga_sber_6481",
+        "company_code": "raduga",
+        "display_name": "ООО \"Радуга\" SBER",
+        "bank": "sber",
+        "parser": "sber_outgoing_balance",
+        "match_all": [
+            "42102810055000546481",
+            "СберБизнес"
+        ],
+        "business_date": "09.06.2026",
+        "active": false
+    },
+    {
+        "account_code": "raduga_sber_6453",
+        "company_code": "raduga",
+        "display_name": "ООО \"Радуга\" SBER",
+        "bank": "sber",
+        "parser": "sber_outgoing_balance",
+        "match_all": [
+            "42102810155000526453",
+            "СберБизнес"
+        ],
+        "business_date": "09.06.2026",
+        "active": false
+    },
+    {
+        "account_code": "raduga_sber_9395",
+        "company_code": "raduga",
+        "display_name": "ООО \"Радуга\" SBER",
+        "bank": "sber",
+        "parser": "sber_outgoing_balance",
+        "match_all": [
+            "42102810255000539395",
+            "СберБизнес"
+        ],
+        "business_date": "09.06.2026",
+        "active": false
+    },
+    {
+        "account_code": "raduga_sber_0665",
+        "company_code": "raduga",
+        "display_name": "ООО \"Радуга\" SBER",
+        "bank": "sber",
+        "parser": "sber_outgoing_balance",
+        "match_all": [
+            "42102810255000560665",
+            "СберБизнес"
+        ],
+        "business_date": "09.06.2026",
+        "active": false
+    },
+    {
+        "account_code": "raduga_sber_9233",
+        "company_code": "raduga",
+        "display_name": "ООО \"Радуга\" SBER",
+        "bank": "sber",
+        "parser": "sber_outgoing_balance",
+        "match_all": [
+            "42102810355000559233",
+            "СберБизнес"
+        ],
+        "business_date": "09.06.2026",
+        "active": false
+    },
+    {
+        "account_code": "raduga_sber_0393",
+        "company_code": "raduga",
+        "display_name": "ООО \"Радуга\" SBER",
+        "bank": "sber",
+        "parser": "sber_outgoing_balance",
+        "match_all": [
+            "42102810455000580393",
+            "СберБизнес"
+        ],
+        "business_date": "09.06.2026",
+        "active": false
+    },
+    {
+        "account_code": "raduga_sber_2125",
+        "company_code": "raduga",
+        "display_name": "ООО \"Радуга\" SBER",
+        "bank": "sber",
+        "parser": "sber_outgoing_balance",
+        "match_all": [
+            "42102810555000522125",
+            "СберБизнес"
+        ],
+        "business_date": "09.06.2026",
+        "active": false
+    },
+    {
+        "account_code": "raduga_sber_5517",
+        "company_code": "raduga",
+        "display_name": "ООО \"Радуга\" SBER",
+        "bank": "sber",
+        "parser": "sber_outgoing_balance",
+        "match_all": [
+            "42102810555000525517",
+            "СберБизнес"
+        ],
+        "business_date": "09.06.2026",
+        "active": false
+    },
+    {
+        "account_code": "raduga_sber_2989",
+        "company_code": "raduga",
+        "display_name": "ООО \"Радуга\" SBER",
+        "bank": "sber",
+        "parser": "sber_outgoing_balance",
+        "match_all": [
+            "42102810755000542989",
+            "СберБизнес"
+        ],
+        "business_date": "09.06.2026",
+        "active": false
+    },
+    {
+        "account_code": "raduga_sber_2473",
+        "company_code": "raduga",
+        "display_name": "ООО \"Радуга\" SBER",
+        "bank": "sber",
+        "parser": "sber_outgoing_balance",
+        "match_all": [
+            "42102810755000582473",
+            "СберБизнес"
+        ],
+        "business_date": "09.06.2026",
+        "active": false
+    },
+    {
+        "account_code": "raduga_sber_2759",
+        "company_code": "raduga",
+        "display_name": "ООО \"Радуга\" SBER",
+        "bank": "sber",
+        "parser": "sber_outgoing_balance",
+        "match_all": [
+            "42102810855000562759",
+            "СберБизнес"
+        ],
+        "business_date": "09.06.2026",
+        "active": false
+    },
+    {
+        "account_code": "raduga_sber_5361",
+        "company_code": "raduga",
+        "display_name": "ООО \"Радуга\" SBER",
+        "bank": "sber",
+        "parser": "sber_outgoing_balance",
+        "match_all": [
+            "42102810855000565361",
+            "СберБизнес"
+        ],
+        "business_date": "09.06.2026",
+        "active": false
+    },
+    {
+        "account_code": "raduga_sber_7611",
+        "company_code": "raduga",
+        "display_name": "ООО \"Радуга\" SBER",
+        "bank": "sber",
+        "parser": "sber_outgoing_balance",
+        "match_all": [
+            "42102810855000587611",
+            "СберБизнес"
+        ],
+        "business_date": "09.06.2026",
+        "active": false
+    },
+    {
+        "account_code": "reaktiv_bspb_7959",
+        "company_code": "reaktiv",
+        "display_name": "ООО \"Реактив\" BSPB",
+        "bank": "bspb",
+        "parser": "bspb_spisanie_balance",
+        "match_all": [
+            "42102810190270017959"
+        ],
+        "business_date": "09.06.2026",
+        "active": false
+    },
+    {
+        "account_code": "reaktiv_bspb_7969",
+        "company_code": "reaktiv",
+        "display_name": "ООО \"Реактив\" BSPB",
+        "bank": "bspb",
+        "parser": "bspb_spisanie_balance",
+        "match_all": [
+            "42102810290270017969"
+        ],
+        "business_date": "09.06.2026",
+        "active": false
+    },
+    {
+        "account_code": "romashki_bspb_1648",
+        "company_code": "romashki",
+        "display_name": "ООО \"Ромашки\" BSPB",
+        "bank": "bspb",
+        "parser": "bspb_spisanie_balance",
+        "match_all": [
+            "40702810990270001648"
+        ],
+        "business_date": "09.06.2026",
+        "active": false
+    },
+    {
+        "account_code": "tsn_repinskoe2_tochka_3110",
+        "company_code": "tsn_repinskoe2",
+        "display_name": "ТСН \"РЕПИНСКОЕ 2\" TOCHKA",
+        "bank": "tochka",
+        "parser": "tochka_outgoing_balance",
+        "match_all": [
+            "40703810720000003110"
+        ],
+        "business_date": "09.06.2026",
+        "active": false
     }
 ]

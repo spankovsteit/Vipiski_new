@@ -26,14 +26,14 @@ Data flow (high level)
    With formulas off, the same date rule applies to the numeric total.
    Set ``VIPISKI_ACCOUNT_BALANCES_USE_FORMULAS=false`` for numeric totals.
    If Raw is empty and no PDF produced data, **totals are not touched**.
-7. **Telegram** — Build human-readable lines from Raw + ``companies`` + deposits
+7. **Notifications** — Build human-readable lines from Raw + ``companies`` + deposits
    scraped from the same balance sheet; mirror the full text to **Account_balances!P1**;
-   then send (split if over ~4000 chars).
+   then send to Telegram and/or Bitrix24 (split if over ~4000 chars).
 
 Legacy note: ``Vipiski_ostatki.py`` used Excel (xlwings) as a scratch pad; this
 pipeline uses **Raw_balances** as per-account storage instead.
 
-Exit codes: 0 OK, 1 missing env, 2 Google error, 3 Telegram error.
+Exit codes: 0 OK, 1 missing env, 2 Google error, 3 notification error.
 """
 
 from __future__ import annotations
@@ -62,6 +62,7 @@ from vipiski.google_sync import (
 from vipiski.loaders import load_accounts, load_companies
 from vipiski.report import build_telegram_text
 from vipiski.settings import load_settings, ROOT
+from vipiski.bitrix24_client import Bitrix24SendError, send_bitrix24_message
 from vipiski.telegram_client import TelegramSendError, send_telegram_message
 
 
@@ -197,7 +198,7 @@ def main() -> int:
 
     # Avoid sending a useless "all zeros" message when nothing was ever seeded.
     if not balances and not parsed_updates:
-        log.info("No Raw_balances data and no PDF parses; skip Telegram")
+        log.info("No Raw_balances data and no PDF parses; skip notifications")
         return 0
 
     # Telegram shows every active account; missing Raw row → display 0 for that line.
@@ -214,7 +215,7 @@ def main() -> int:
         log.exception("Failed to write Telegram text to Account_balances!P1: %s", e)
 
     if settings.skip_telegram:
-        log.info("VIPISKI_SKIP_TELEGRAM set — message not sent (Google sync completed)")
+        log.info("VIPISKI_SKIP_TELEGRAM set — Telegram not sent (Google sync completed)")
     else:
         try:
             send_telegram_message(
@@ -242,6 +243,48 @@ def main() -> int:
             if settings.telegram_soft_fail:
                 log.warning(
                     "VIPISKI_TELEGRAM_SOFT_FAIL: exiting with success despite Telegram error"
+                )
+                return 0
+            return 3
+
+    bitrix_ready = (
+        settings.bitrix24_webhook_url
+        and settings.bitrix24_dialog_id
+        and not settings.skip_bitrix24
+    )
+    if not bitrix_ready:
+        if settings.skip_bitrix24:
+            log.info("VIPISKI_SKIP_BITRIX24 set — Bitrix24 not sent")
+        elif not settings.bitrix24_webhook_url or not settings.bitrix24_dialog_id:
+            log.debug("Bitrix24 not configured — skip")
+    else:
+        try:
+            send_bitrix24_message(
+                settings.bitrix24_webhook_url,
+                settings.bitrix24_dialog_id,
+                text,
+            )
+        except Bitrix24SendError as e:
+            if e.transient:
+                log.warning(
+                    "Bitrix24 transient failure after %d attempt(s): %s. "
+                    "Google sync succeeded; message remains in Account_balances!P1.",
+                    e.attempts,
+                    e,
+                )
+                return 0
+            log.exception("Bitrix24 failed (non-transient): %s", e)
+            if settings.bitrix24_soft_fail:
+                log.warning(
+                    "VIPISKI_BITRIX24_SOFT_FAIL: exiting with success despite Bitrix24 error"
+                )
+                return 0
+            return 3
+        except Exception as e:
+            log.exception("Bitrix24 failed: %s", e)
+            if settings.bitrix24_soft_fail:
+                log.warning(
+                    "VIPISKI_BITRIX24_SOFT_FAIL: exiting with success despite Bitrix24 error"
                 )
                 return 0
             return 3

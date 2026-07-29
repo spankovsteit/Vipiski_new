@@ -37,6 +37,18 @@ from vipiski.pdf_reader import extract_pdf_text
 log = logging.getLogger(__name__)
 
 
+def _normalize_match_text(value: str) -> str:
+    """Collapse whitespace so PDF line breaks / double spaces still match rules."""
+    return " ".join((value or "").split())
+
+
+def _match_all_satisfied(text: str, needles: list[str]) -> bool:
+    if not needles:
+        return False
+    normalized_text = _normalize_match_text(text)
+    return all(_normalize_match_text(n) in normalized_text for n in needles)
+
+
 def parse_pdfs(
     pdf_paths: list[Path],
     account_rules: list[dict],
@@ -73,7 +85,7 @@ def parse_pdfs(
             if not rule.get("active", True):
                 continue
             needles = rule.get("match_all") or []
-            if not all(n in text for n in needles):
+            if not _match_all_satisfied(text, needles):
                 continue
             parser_name = rule["parser"]
             val = run_parser(
@@ -129,7 +141,7 @@ def parse_pdfs_with_unmatched(
             if not rule.get("active", True):
                 continue
             needles = rule.get("match_all") or []
-            if not all(n in text for n in needles):
+            if not _match_all_satisfied(text, needles):
                 continue
             parser_name = rule["parser"]
             val = run_parser(
